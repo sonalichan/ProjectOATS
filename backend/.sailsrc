@@ -1,6 +1,8 @@
 {
   "generators": {
-    "modules": {}
+    "modules": {
+      "vue-component": "@acidev/sails-generate-vue-component"
+    }
   },
   "_generatedWith": {
     "sails": "1.4.0",
