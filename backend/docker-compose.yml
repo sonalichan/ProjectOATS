@@ -3,7 +3,8 @@ version: '3'
 services:
   sails-app:
     restart: always
-    build: .
+    build:
+      context: .
     container_name: sails-app
     volumes:
       - .:/user/src/app  # bind current directory with container directory
