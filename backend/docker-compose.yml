@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  sails-app:
+    restart: always
+    build: .
+    container_name: sails-app
+    volumes:
+      - .:/user/src/app  # bind current directory with container directory
+    ports:
+      - '1337:1337'
+    command: bash -c "sails lift"

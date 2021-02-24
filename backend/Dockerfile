@@ -17,10 +17,7 @@ COPY . .
 # expose sails' default port
 EXPOSE 1337
 
-CMD ["sails", "lift"]
-
 
 # Steps to build and run - everything should be run from the backend/ folder
 
-# build container: docker build -t sails-app .
-# run container: docker run -d --name sails-app -p 1337:1337 sails-app
+# docker-compose up --build
