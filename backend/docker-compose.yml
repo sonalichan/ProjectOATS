@@ -5,7 +5,6 @@ services:
     restart: always
     build:
       context: .
-    container_name: sails-app
     volumes:
       - .:/user/src/app  # bind current directory with container directory
     ports:
