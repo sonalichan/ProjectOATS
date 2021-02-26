@@ -16,8 +16,3 @@ COPY . .
 
 # expose sails' default port
 EXPOSE 1337
-
-
-# Steps to build and run - everything should be run from the backend/ folder
-
-# docker-compose up --build
