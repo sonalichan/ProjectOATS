@@ -11,7 +11,7 @@
 
 To start, make sure you have Docker and Docker-compose installed on your machine.
 
-Then, from the root directory run the following command:
+Then, from the `backend` directory run the following command:
 
     $ docker-compose up --build
 
