@@ -1,7 +1,7 @@
 # ProjectOATS
 
 
-## Development
+## Development with Docker
 
 ### Prerequisites
 
@@ -22,6 +22,18 @@ To stop the docker container, either press Ctrl + C or run `docker stop sails-ap
 On subsequent builds, just run:
 
     $ docker-compose up
+
+## Local Development
+
+To install all dependencies, run:
+
+    $ npm install .
+
+To run the project, run the command:
+
+    $ sails lift
+
+Now, you should see the project running at http://localhost:1337
 
 ## Contact Information
 Sonali Chandra(PM) - xsonali@uw.edu
