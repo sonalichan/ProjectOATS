@@ -18,7 +18,8 @@ parasails.registerComponent('banner', {
     //  ╠═╝╠╦╝║ ║╠═╝╚═╗
     //  ╩  ╩╚═╚═╝╩  ╚═╝
     props: [
-        'alt',
+        'source',
+        'alt-text',
     ],
   
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -33,7 +34,7 @@ parasails.registerComponent('banner', {
     //  ╦ ╦╔╦╗╔╦╗╦
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
-    template: '<img src= "text" alt= "text">',
+    template: '<img src="text" alt="text">',
   
     //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
     //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
