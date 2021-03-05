@@ -13,7 +13,7 @@
 //       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
 //       projectTitle: {
-//         type: 'Character',
+//         type: 'string',
 //         required: true,
 //         description: "Title of project",
 //         maxLength: 200, 
@@ -21,7 +21,7 @@
 //       },  
 
 //       sponsorOrganization: {
-//         type: 'character',
+//         type: 'string',
 //         required: true,
 //         description: "Name of the sponsored organization the group is working with. N/A for non-sponsored",
 //         maxLength: 120, 
@@ -53,7 +53,7 @@
 //       },
 
 //       websiteURL: {
-//         type: 'character',
+//         type: 'string',
 //         required: false,
 //         description: "URL of project website if group has made one",
 //         example: 'exampleproject.com'

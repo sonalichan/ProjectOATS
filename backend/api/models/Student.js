@@ -21,7 +21,7 @@
 //       },
       
 //       linkedinURL: {
-//         type: 'character',
+//         type: 'string',
 //         required: false,
 //         description: 'Link to student\'s LinkedIn profile',
 //         example: 'https://www.linkedin.com/in/Mary-Sue/' 
@@ -35,7 +35,7 @@
 //       },
 
 //       projectID: {
-//         type: 'character',
+//         type: 'string',
 //         required: true,
 //         description: 'Links student to their project through the ID',
 //         isUnique: true
