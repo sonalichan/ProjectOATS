@@ -43,19 +43,13 @@ module.exports = {
 
       posterImage: {
         type: 'file',
-        required: true,
+        required: false,
         description: "Image for project poster on project display page",
       },
 
       projectPoster: {
         type: 'file',
-        required: true,
-        description: "Uploaded file of project poster",
-      },
-
-      projectPoster: {
-        type: 'file',
-        required: true,
+        required: false,
         description: "Uploaded file of project poster",
       },
 
@@ -87,35 +81,47 @@ module.exports = {
 
       theChallenge: {
         type: 'string',
-        required: true,
+        required: false,
         description: "The challenge of completing the project",
       },
 
       theOutcome: {
         type: 'string',
-        required: true,
+        required: false,
         description: "The outcome from completing the project",
       },
 
       theImpact: {
         type: 'string',
-        required: true,
+        required: false,
         description: "The impact of the project due to its completion",
       },
 
       problemStatement: {
         type: 'string',
-        required: true,
+        required: false,
         description: "The problem statement of your team's project"
       },
 
       introduction: {
         type: 'string',
-        required: true,
+        required: false,
         description: "A brief paragrpah summarizing what the project is"
       },
 
+      isOldProject: {
+        type: 'boolean',
+        required: true,
+        description: "True/False if the project is before the new website design or not"
+      },
 
+      abstract: {
+          type: 'string',
+          required: false,
+          description: "Overview paragraph of project, for old projects only"
+      },
+
+      
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
       //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
