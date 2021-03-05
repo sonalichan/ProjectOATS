@@ -36,21 +36,24 @@ module.exports = {
       },
       
       tileImage: {
-        type: 'file',
+        type: 'ref',
         required: true,
         description: "Image for project tile in archive browsing page",
+        columnType: 'mediumblob'
       },
 
       posterImage: {
-        type: 'file',
+        type: 'ref',
         required: false,
         description: "Image for project poster on project display page",
+        columnType: 'mediumblob'
       },
 
       projectPoster: {
-        type: 'file',
+        type: 'ref',
         required: false,
         description: "Uploaded file of project poster",
+        columnType: 'mediumblob'
       },
 
       projectVideo: {
@@ -121,7 +124,43 @@ module.exports = {
           description: "Overview paragraph of project, for old projects only"
       },
 
-      
+      keyFeatures: {
+          type: 'string',
+          required: false,
+          description: "Bullet points or paragrpah of key features from project"
+      },
+
+      keyFeaturesImage: {
+          type: 'ref',
+          required: false,
+          description: "Image next to key features list/paragraph",
+          columnType: 'mediumblob'
+      },
+
+      productJourney: {
+          type: 'string',
+          required: false,
+          description: "Bullet points or paragraph describing the journey of project/product"
+      },
+
+      productJourneyImage: {
+        type: 'ref',
+        required: false,
+        description: "Image next to product journey list/paragraph",
+        columnType: 'mediumblob'
+    },
+
+    projectTags: {
+        type: 'json',
+        required: true,
+        description: "Tags for the project that are standardized across all projects"
+    },
+
+    projectTechnologies: {
+        type: 'json',
+        required: false,
+        description: "List of the technologies used for project"
+    }
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
       //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
