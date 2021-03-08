@@ -24,7 +24,7 @@ module.exports = {
         type: 'string',
         required: true,
         description: 'Links student to their project through the ID',
-        isUnique: true
+        unique: true
       },
 
       sponsorOrganization: {
@@ -151,16 +151,16 @@ module.exports = {
     },
 
     projectTags: {
-        type: 'json',
+        type: 'strings',
         required: true,
         description: "Tags for the project that are standardized across all projects"
     },
 
     projectTechnologies: {
-        type: 'json',
+        type: 'string',
         required: false,
         description: "List of the technologies used for project"
-    }
+    },
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
       //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -170,7 +170,12 @@ module.exports = {
       //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
       //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
       // n/a
-  
+
+      // One to many relationship of Project Team to Student with Project Team as parent
+      Students:{
+        collection: 'Student',
+        via: 'owner'
+      }
     },
   
   

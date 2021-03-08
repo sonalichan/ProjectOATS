@@ -11,7 +11,8 @@ module.exports = {
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-  
+      
+      // Student's best email address for contact
       emailAddress: {
         type: 'string',
         required: false,
@@ -20,6 +21,7 @@ module.exports = {
         example: 'mary.sue@example.com'
       },
       
+      // The url for a student's LinkedIn profile
       linkedinURL: {
         type: 'string',
         required: false,
@@ -27,6 +29,7 @@ module.exports = {
         example: 'https://www.linkedin.com/in/Mary-Sue/' 
       },
 
+      // A student's project role
       projectRole: {
           type: 'string',
           required: true,
@@ -34,13 +37,7 @@ module.exports = {
           example: 'Developer'
       },
 
-      projectID: {
-        type: 'string',
-        required: true,
-        description: 'Links student to their project through the ID',
-        isUnique: true
-      },
-
+      // The student's first name
       firstName: {
         type: 'string',
         required: true,
@@ -49,6 +46,7 @@ module.exports = {
         example: 'Mary'
       },
 
+      // The student's last name
       lastName: {
         type: 'string',
         required: true,
@@ -57,12 +55,12 @@ module.exports = {
         example: 'Sue'
       },
 
+      // Student's decision to opt out of having their information on the Capstone page or not
       optOut: {
         type: 'boolean',
         required: true,
         description: 'Decision of student if they want to opt out of having their information on the Capstone page',
       },
-
 
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -73,7 +71,12 @@ module.exports = {
       //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
       //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
       // n/a
-  
+      
+      // One to many relationship with Student being the child of ProjectTeam
+      owner: {
+        model: 'ProjectTeam'
+      }
+
     },
   
   
