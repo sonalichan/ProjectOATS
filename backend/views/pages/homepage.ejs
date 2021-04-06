@@ -1,20 +1,51 @@
-<div id="homepage" v-cloak>
-  <div style="padding-top: 100px; padding-bottom: 25px; color: #14acc2;" class="d-flex flex-column justify-content-center position-relative" purpose="full-page-hero">
-    <div class="container text-center">
+<div id="homepage" style="background-color: #E5E5E5" v-cloak>
+  <navbar placeholder="Search"></navbar>
+
+  <carousel></carousel>
+
+  <!-- explore work by major section. Will become a component later -->
+  <div class="d-flex justify-content-around align-items-center" style="background-color: #5C3CA5; color: white; padding: 30px; margin-bottom: 30px;">
+    <div>
+      <h2 style="font-size: 24px; margin-bottom: 20px;">Explore Work by Major</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li style="padding: 10px;">
+          <strong>INFO</strong> Informatics
+          <small style="display: block"><em>Undergraduate Major and Minor</em></small>
+        </li>
+        <li style="padding: 10px;">
+          <strong>MLIS</strong>
+          <small style="display: block"><em>Master of Library and Information Science</em></small>
+        </li>
+        <li style="padding: 10px;">
+          <strong>MSIM</strong>
+          <small style="display: block"><em>Master of Science in Information Management</em></small>
+        </li>
+      </ul>
+    </div>
+    <div style="height: 200px; width: 300px; background-color: grey; color: white; text-align: center">Image will go here</div>
+  </div>
+
+  <!-- explore student work section -->
+  <!-- <div class="d-flex flex-wrap" style="padding: 10px; width: 90%; background-color: white; margin: auto auto;">
+    <project-card
+      url="new-data-page"
+      src="images/data-diary.png"
+      alt="data diary image"
+      name="Data Diary"
+      description="Developing data literacy skills at a young age to dramatically improve workforce preparedness."
+      year></project-card>
+  </div> -->
+
+  <div style="padding: 30px; background-color: white; width: 90%; margin: auto auto;">
+    <h2 style="text-align: center;">Explore Student Work</h2>
+    <br/>
+    <div class="d-flex  justify-content-center">
       <a id="new-data-card" href="new-data-page" style="padding: 50px; border-radius: 10px; margin-right: 50px; border: 1px solid black;">New Design with New Data</a>
       <a id="old-data-card" href="old-data-page" style="padding: 50px; border-radius: 10px; border: 1px solid black;">New Design with Old Data</a>
     </div>
+
   </div>
 
-  <div>
-    <h2>This is a space to practice some development stuff. Currently editing the homepage.ejs file in the page directory</h2>
-    <div>Next, I'm going to try and put the search component that I defined in the component/ director directly into this page. This component takes a "placehodler" prop</div>
-    <search-bar placeholder="custom placeholder"></search-bar>
-    <div>There should now be a search bar above this line</div>
-    <banner src="https://lh3.googleusercontent.com/proxy/LjkoX2Ya5552O6pjkgQPZjfFDqzj_ZnTL2-AoRUMtaj7MAVERUQIzc2qSNjIkO1c69GBcXFOvFLWNSqvnWlqfFPr7AiA" alt="hi"></banner>
-    <outline-button url = "location.href='https://www.youtube.com';" text = "View full poster (pdf)"> </outline-button>
-    <outline-button text = "View project website"></outline-button>
-  </div>
 
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
