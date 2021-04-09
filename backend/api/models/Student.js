@@ -75,8 +75,11 @@ module.exports = {
       // One to many relationship with Student being the child of ProjectTeam
       owner: {
         model: 'ProjectTeam'
+      },
+      programs:{
+        collection: 'Program',
+        via: 'owner'
       }
-
     },
   
   
