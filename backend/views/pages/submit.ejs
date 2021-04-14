@@ -12,7 +12,7 @@
     <p>Please list team member names as they should appear in the Capstone project archives</p>
     <p>Please check the box next to team members who do not want their names listed in the Capstone project archives</p>
 
-    <div id="accordion">
+    <div id="accordion" class="form-group">
       <div class="card">
         <div class="card-header" id="headingOne">
           <h5 class="mb-0">
@@ -240,7 +240,7 @@
         <input
           type="radio"
           id="yesSponsored"
-          name="customRadio"
+          name="yesSponsored"
           class="form-check-input"
           v-model="form.sponsored"
           v-bind:value="true"
@@ -253,7 +253,7 @@
         <input
           type="radio"
           id="noSponsored"
-          name="customRadio"
+          name="noSponsored"
           class="form-check-input"
           v-model="form.sponsored"
           v-bind:value="false"
