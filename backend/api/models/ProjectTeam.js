@@ -151,7 +151,7 @@ module.exports = {
     },
 
     projectTags: {
-        type: 'strings',
+        type: 'string',
         required: true,
         description: "Tags for the project that are standardized across all projects"
     },
