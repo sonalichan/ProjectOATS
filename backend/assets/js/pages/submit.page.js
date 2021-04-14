@@ -32,6 +32,8 @@ parasails.registerPage('submit', {
           optOut: false
         },
       ],
+      sponsored: false,
+      sponsorName: '',
       challenge: '',
       outcome: '',
       impact: '',
