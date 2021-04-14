@@ -1,0 +1,496 @@
+<div id="submit" v-cloak>
+
+  <h1>Capstone Submission Form</h1>
+  <p>All Capstone project teams, including online students/teams, must submit this form no later than <strong>12:00 PM (Noon) on Monday, May 18th Pacific Time.
+     Each team should submit only one form for the entire team.
+  </strong></p>
+  <p><strong>No late submissions will be accepted.</strong></p>
+  <p>This form is required <strong>in addition to</strong> class assignments. The event team needs this information for the Capstone event and the Capstone project archives</p>
+
+  <form @submit="onSubmit">
+    <h2>Team Members</h2>
+    <p>Please list team member names as they should appear in the Capstone project archives</p>
+    <p>Please check the box next to team members who do not want their names listed in the Capstone project archives</p>
+    
+    <!-- team member 1
+    <div class="form-group">
+      <h3>Team Member 1</h3>
+      <label for="team-member1-fname-input">First Name:</label>
+      <input
+        id="team-member1-fname-input"
+        class="form-control"
+        v-model="form.teamMembers[0].firstName"
+        type="text"
+        required
+      ></input>
+      <label for="team-member1-lname-input">Last Name:</label>
+      <input
+        id="team-member1-lname-input"
+        class="form-control"
+        v-model="form.teamMembers[0].lastName"
+        type="text"
+        required
+      ></input>
+      <label for="team-member1-role-input">Role:</label>
+      <input
+        id="team-member1-role-input"
+        class="form-control"
+        v-model="form.teamMembers[0].role"
+        type="text"
+        required
+      ></input>
+      <div class="form-check">
+        <input
+          id="team-member1-opt"
+          type="checkbox"
+          class="form-check-input"
+          v-model="form.teamMembers[0].optOut"
+        ></input>
+        <label class="form-check-label" for="team-member1-opt">Opt-out of website</label>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+      <h3>Team Member 2</h3>
+      <label for="team-member2-fname-input">First Name:</label>
+      <input
+        id="team-member2-fname-input"
+        class="form-control"
+        v-model="form.teamMembers[1].firstName"
+        type="text"
+      ></input>
+      <label for="team-member2-lname-input">Last Name:</label>
+      <input
+        id="team-member2-lname-input"
+        class="form-control"
+        v-model="form.teamMembers[1].lastName"
+        type="text"
+      ></input>
+      <label for="team-member2-role-input">Role:</label>
+      <input
+        id="team-member2-role-input"
+        class="form-control"
+        v-model="form.teamMembers[1].role"
+        type="text"
+      ></input>
+      <div class="form-check">
+        <input
+          id="team-member2-opt"
+          type="checkbox"
+          class="form-check-input"
+          v-model="form.teamMembers[1].optOut"
+        ></input>
+        <label class="form-check-label" for="team-member2-opt">Opt-out of website</label>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+      <h3>Team Member 3</h3>
+      <label for="team-member3-fname-input">First Name:</label>
+      <input
+        id="team-member3-fname-input"
+        class="form-control"
+        v-model="form.teamMembers[2].firstName"
+        type="text"
+      ></input>
+      <label for="team-member3-lname-input">Last Name:</label>
+      <input
+        id="team-member3-lname-input"
+        class="form-control"
+        v-model="form.teamMembers[2].lastName"
+        type="text"
+      ></input>
+      <label for="team-member3-role-input">Role:</label>
+      <input
+        id="team-member3-role-input"
+        class="form-control"
+        v-model="form.teamMembers[2].role"
+        type="text"
+      ></input>
+      <div class="form-check">
+        <input
+          id="team-member3-opt"
+          type="checkbox"
+          class="form-check-input"
+          v-model="form.teamMembers[2].optOut"
+        ></input>
+        <label class="form-check-label" for="team-member3-opt">Opt-out of website</label>
+      </div>
+    </div>
+
+    <hr>
+    
+    <div class="form-group">
+      <h3>Team Member 4</h3>
+      <label for="team-member4-fname-input">First Name:</label>
+      <input
+        id="team-member4-fname-input"
+        class="form-control"
+        v-model="form.teamMembers[3].firstName"
+        type="text"
+      ></input>
+      <label for="team-member4-lname-input">Last Name:</label>
+      <input
+        id="team-member4-lname-input"
+        class="form-control"
+        v-model="form.teamMembers[3].lastName"
+        type="text"
+      ></input>
+      <label for="team-member4-role-input">Role:</label>
+      <input
+        id="team-member4-role-input"
+        class="form-control"
+        v-model="form.teamMembers[3].role"
+        type="text"
+      ></input>
+      <div class="form-check">
+        <input
+          id="team-member4-opt"
+          type="checkbox"
+          class="form-check-input"
+          v-model="form.teamMembers[3].optOut"
+        ></input>
+        <label class="form-check-label" for="team-member4-opt">Opt-out of website</label>
+      </div>
+    </div> -->
+
+
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Team Member 1
+            </button>
+          </h5>
+        </div>
+    
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="team-member1-fname-input">First Name:</label>
+              <input
+                id="team-member1-fname-input"
+                class="form-control"
+                v-model="form.teamMembers[0].firstName"
+                type="text"
+                required
+              ></input>
+              <label for="team-member1-lname-input">Last Name:</label>
+              <input
+                id="team-member1-lname-input"
+                class="form-control"
+                v-model="form.teamMembers[0].lastName"
+                type="text"
+                required
+              ></input>
+              <label for="team-member1-role-input">Role:</label>
+              <input
+                id="team-member1-role-input"
+                class="form-control"
+                v-model="form.teamMembers[0].role"
+                type="text"
+                required
+              ></input>
+              <div class="form-check">
+                <input
+                  id="team-member1-opt"
+                  type="checkbox"
+                  class="form-check-input"
+                  v-model="form.teamMembers[0].optOut"
+                ></input>
+                <label class="form-check-label" for="team-member1-opt">Opt-out of website</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Team Member 2
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="team-member2-fname-input">First Name:</label>
+              <input
+                id="team-member2-fname-input"
+                class="form-control"
+                v-model="form.teamMembers[1].firstName"
+                type="text"
+              ></input>
+              <label for="team-member2-lname-input">Last Name:</label>
+              <input
+                id="team-member2-lname-input"
+                class="form-control"
+                v-model="form.teamMembers[1].lastName"
+                type="text"
+              ></input>
+              <label for="team-member2-role-input">Role:</label>
+              <input
+                id="team-member2-role-input"
+                class="form-control"
+                v-model="form.teamMembers[1].role"
+                type="text"
+              ></input>
+              <div class="form-check">
+                <input
+                  id="team-member2-opt"
+                  type="checkbox"
+                  class="form-check-input"
+                  v-model="form.teamMembers[1].optOut"
+                ></input>
+                <label class="form-check-label" for="team-member2-opt">Opt-out of website</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Team Member 3
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="team-member3-fname-input">First Name:</label>
+              <input
+                id="team-member3-fname-input"
+                class="form-control"
+                v-model="form.teamMembers[2].firstName"
+                type="text"
+              ></input>
+              <label for="team-member3-lname-input">Last Name:</label>
+              <input
+                id="team-member3-lname-input"
+                class="form-control"
+                v-model="form.teamMembers[2].lastName"
+                type="text"
+              ></input>
+              <label for="team-member3-role-input">Role:</label>
+              <input
+                id="team-member3-role-input"
+                class="form-control"
+                v-model="form.teamMembers[2].role"
+                type="text"
+              ></input>
+              <div class="form-check">
+                <input
+                  id="team-member3-opt"
+                  type="checkbox"
+                  class="form-check-input"
+                  v-model="form.teamMembers[2].optOut"
+                ></input>
+                <label class="form-check-label" for="team-member3-opt">Opt-out of website</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingFour">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Team Member 4
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="team-member4-fname-input">First Name:</label>
+              <input
+                id="team-member4-fname-input"
+                class="form-control"
+                v-model="form.teamMembers[3].firstName"
+                type="text"
+              ></input>
+              <label for="team-member4-lname-input">Last Name:</label>
+              <input
+                id="team-member4-lname-input"
+                class="form-control"
+                v-model="form.teamMembers[3].lastName"
+                type="text"
+              ></input>
+              <label for="team-member4-role-input">Role:</label>
+              <input
+                id="team-member4-role-input"
+                class="form-control"
+                v-model="form.teamMembers[3].role"
+                type="text"
+              ></input>
+              <div class="form-check">
+                <input
+                  id="team-member4-opt"
+                  type="checkbox"
+                  class="form-check-input"
+                  v-model="form.teamMembers[3].optOut"
+                ></input>
+                <label class="form-check-label" for="team-member4-opt">Opt-out of website</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <br>
+
+    <h2>Project Information</h2>
+    <p>Please fill out the following information regarding your Capstone project. After filling out all of the information, you will be able to preview your Capstone project page</p>
+    
+    <div class="form-group">
+      <label for="project-title-input">Project Title:</label>
+      <input
+        id="project-title-input"
+        class="form-control"
+        v-model="form.projectTitle"
+        type="text"
+        placeholder="Enter project title"
+        required
+      ></input>
+    </div>
+
+    <div class="form-group">
+      <label for="project-image-input">Project Image:</label>
+      <input
+        id="project-image-input"
+        type="file"
+        class="form-control-file"
+        v-on:change="processFile()"
+        required
+      ></input>
+    </div>
+
+    <div class="form-group">
+      <label for="challenge-input">The Challenge:</label>
+      <textarea
+        id="challenge-input"
+        class="form-control"
+        v-model="form.challenge"
+        type="text"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="outcome-input">The Outcome:</label>
+      <textarea
+        id="outcome-input"
+        class="form-control"
+        v-model="form.outcome"
+        type="text"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="impact-input">The Impact:</label>
+      <textarea
+        id="impact-input"
+        class="form-control"
+        v-model="form.impact"
+        type="text"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="introduction-input">Problem Statement:</label>
+      <input
+        id="problem-statement-input"
+        class="form-control"
+        v-model="form.problemStatement"
+        type="text"
+        required
+      ></input>
+    </div>
+
+    
+    <div class="form-group">
+      <label for="introduction-input">Introduction:</label>
+      <textarea
+        id="introduction-input"
+        class="form-control"
+        v-model="form.introduction"
+        type="text"
+        required
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="topics-input">Topics:</label>
+      <select
+        id="topics-input"
+        class="form-control"
+        aria-describedby="topics-selected"
+        v-model="form.topics"
+        multiple
+        size="3"
+        required>
+        <!-- TODO: fill these in dynamically -->
+        <option>[temp] data viz</option>
+        <option>[temp] front end development</option>
+        <option>[temp] ux design</option>
+        <option>[temp] social justice</option>
+        <option>[temp] privacy</option>
+        <option>[temp] organization</option>
+      </select>
+      <small id="topics-selected" class="form-text text-muted">Selected: {{ form.topics }}</small>
+    </div>
+
+    <!-- ask if sponsored or not; show sponsored input if they answer yes -->
+
+    <div class="form-group">
+      <label for="majors-select">Major(s):</label>
+      <select
+        id="majors-select"
+        class="form-control"
+        aria-describedby="majors-selected"
+        v-model="form.majors"
+        size="3"
+        multiple
+        required>
+        <option>INFO</option>
+        <option>MLIS</option>
+        <option>MSIM</option>
+      </select>
+      <small id="majors-selected" class="form-text text-muted">Selected: {{ form.majors }}</small>
+    </div>
+
+    <div class="form-group">
+      <label for="keyfeatures-input">Key Features:</label>
+      <textarea
+        id="keyfeatures-input"
+        class="form-control"
+        v-model="form.keyFeatures"
+        type="text"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Project Page</button>
+  </form>
+
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
