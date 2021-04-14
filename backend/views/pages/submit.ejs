@@ -7,7 +7,7 @@
   <p><strong>No late submissions will be accepted.</strong></p>
   <p>This form is required <strong>in addition to</strong> class assignments. The event team needs this information for the Capstone event and the Capstone project archives</p>
 
-  <form @submit="onSubmit">
+  <form @submit="onSubmit" action="/Project" method="POST" enctype="multipart/form-data">
     <h2>Team Members</h2>
     <p>Please list team member names as they should appear in the Capstone project archives</p>
     <p>Please check the box next to team members who do not want their names listed in the Capstone project archives</p>
