@@ -6,6 +6,7 @@ parasails.registerPage('submit', {
     form: {
       projectTitle: '',
       image: null,
+      // TODO: ask for alt text for image
       teamMembers: [
         {
           firstName: '',
