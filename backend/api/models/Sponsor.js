@@ -11,13 +11,6 @@
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      
-      // ID of sponsored organization 
-      sponsorID: {
-        type: 'number',
-        required: true,
-        example: '1'
-      },
 
       // Name of the sponsored organization for the project
       sponsorName: {

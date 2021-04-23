@@ -11,19 +11,17 @@
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      
-      // ID associated with specific project
-      projectID: {
-        type: 'number',
-        required: true,
-        example: '1'
-      },
 
       // Title of project
       projectTitle: {
         type: 'string',
         required: true,
         example: 'Reimagining the Capstone Archive'
+      },
+
+      projectSubtitle: {
+        type: 'string',
+        required: true
       },
       
       // Tells if a project is apart of the old project archive or not
@@ -41,52 +39,41 @@
       // Link to project video
       projectVideo: {
         type: 'string',
-        required: true,
         example: "youtube.com/watch?v=123456"
       },
 
       // Link to project website
       websiteURL: {
         type: 'string',
-        required: false,
         example: "yourwebsite.com"
       },
 
-      // Permission for iSchool to use your information on project page
-      ischoolPermission: {
-        type: 'boolean',
-        required: true,
-      },
-
-      // Tells if this project group will participate in capstone showcase event
-      eventParticipation: {
-        type: 'boolean',
-        required: true
-      },
-
       // Summary of project challenge
-      theChallenge: {
+      challenge: {
         type: 'string',
       },
 
       // Summary of project outcome
-      theOutcome: {
+      outcome: {
         type: 'string',
       },
 
       // Summary of project impact
-      theImpact: {
+      impact: {
         type: 'string',
       },
 
-      // Problem Statement of the project
-      problemStatement: {
-        type: 'string',
-      },
+      // // Problem Statement of the project
+      // problemStatement: {
+      //   type: 'string',
+      // },
 
-      // Introduction of project describing background information 
-      introduction:{
-        type: 'string',
+      // // Introduction of project describing background information 
+      // introduction:{
+      //   type: 'string',
+      // },
+      nextSteps: {
+        type: 'string'
       },
 
       // Summary of project
@@ -94,16 +81,24 @@
         type: 'string',
       },
 
-      // Time project was uploaded to database
-      createdAt: {
-        type: 'number',
-        description: 'A JS timestamp (epoch ms) representing the moment at which this user most recently interacted with the backend while logged in (or 0 if they have not interacted with the backend at all yet).',
+      mainTitle1: {
+        type: 'string',
       },
 
-      // Time project was udpated
-      updatedAt: {
-        type: 'number',
+      mainContent1: {
+        type: 'string',
       },
+
+      mainTitle2: {
+        type: 'string',
+      },
+
+      mainContent2: {
+        type: 'string',
+      }
+
+
+
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
       //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
       //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

@@ -18,13 +18,6 @@ module.exports = {
         description: "Title of project",
         maxLength: 200, 
         example: "Reimagining the iSchool Capstone Archive"
-      },  
-
-      projectID: {
-        type: 'string',
-        required: true,
-        description: 'Links student to their project through the ID',
-        unique: true
       },
 
       sponsorOrganization: {
