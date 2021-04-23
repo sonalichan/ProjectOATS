@@ -1,271 +1,159 @@
-<div id="submit" v-cloak>
+<div id="submit" v-cloak class="mx-auto" style="max-width: 1200px">
 
   <h1>Capstone Submission Form</h1>
   <p>All Capstone project teams, including online students/teams, must submit this form no later than <strong>12:00 PM (Noon) on Monday, May 18th Pacific Time.
      Each team should submit only one form for the entire team.
   </strong></p>
   <p><strong>No late submissions will be accepted.</strong></p>
-  <p>This form is required <strong>in addition to</strong> class assignments. The event team needs this information for the Capstone event and the Capstone project archives</p>
+  <p>This form is required <strong>in addition to</strong> class assignments. The event team needs this information for the Capstone event and the Capstone project archives.</p>
 
   <form @submit="onSubmit">
-    <h2>Team Members</h2>
-    <p>Please list team member names as they should appear in the Capstone project archives</p>
-    <p>Please check the box next to team members who do not want their names listed in the Capstone project archives</p>
 
-    <div id="accordion" class="form-group">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Team Member 1
-            </button>
-          </h5>
+    <div class="mb-5">
+      <h2>Team Members</h2>
+      <p>Please list team member names as they should appear in the Capstone project archives.</p>
+      <p>Please check the box next to team members who do not want their names listed in the Capstone project archives.</p>
+
+      <div v-for="member in form.teamMembers">
+        <div v-if="form.teamMembers.length > 1 && member.index !== 0">
+          <hr>
+          <br>
         </div>
-    
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="team-member1-fname-input">First Name:</label>
+        
+        <h3>Team Member {{member.index + 1}}</h3>
+        <div>
+          <div class="form-row form-group">
+            <div class="col">
+              <label :for="member.index + '-fname'">First Name</label>
               <input
-                id="team-member1-fname-input"
+                :id="member.index + '-fname'"
                 class="form-control"
-                v-model="form.teamMembers[0].firstName"
+                v-model="form.teamMembers[member.index].firstName"
                 type="text"
-                required
               ></input>
-              <label for="team-member1-lname-input">Last Name:</label>
+            </div>
+            <div class="col">
+              <label :for="member.index + '-lname'">Last Name</label>
               <input
-                id="team-member1-lname-input"
+                :id="member.index + '-lname'"
                 class="form-control"
-                v-model="form.teamMembers[0].lastName"
+                v-model="form.teamMembers[member.index].lastName"
                 type="text"
-                required
               ></input>
-              <label for="team-member1-role-input">Role:</label>
-              <input
-                id="team-member1-role-input"
-                class="form-control"
-                v-model="form.teamMembers[0].role"
-                type="text"
-                required
-              ></input>
-              <div class="form-check">
+            </div>
+            <div>
+              <label id="opt-out-group-label" class="d-block">Opt-out of website</label>
+              <div class="form-check form-group" aria-labelledby="opt-out-group-label">
                 <input
-                  id="team-member1-opt"
+                  :id="member.index + '-opt'"
                   type="checkbox"
                   class="form-check-input"
-                  v-model="form.teamMembers[0].optOut"
+                  v-model="form.teamMembers[member.index].optOut"
                 ></input>
-                <label class="form-check-label" for="team-member1-opt">Opt-out of website</label>
+                <label class="form-check-label" :for="member.index + 'opt'">Yes, opt-out</label>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Team Member 2
-            </button>
-          </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="team-member2-fname-input">First Name:</label>
+          <div class="form-group">
+            <label :for="member.index + '-role'">Role</label>
+            <input
+              :id="member.index + '-role'"
+              class="form-control"
+              v-model="form.teamMembers[member.index].role"
+              type="text"
+            ></input>
+          </div>
+          <div class="form-group">
+            <label :for="member.index + '-linkedin'">LinkedIn</label>
+            <input
+              :id="member.index + '-linkedin'"
+              class="form-control"
+              v-model="form.teamMembers[member.index].linkedIn"
+              type="text"
+            ></input>
+          </div>
+          <div class="form-group">
+            <label id="program-label" class="d-block">Program</label>
+            <div class="form-check form-check-inline" v-for="program in programs" aria-labelledby="program-label">
               <input
-                id="team-member2-fname-input"
-                class="form-control"
-                v-model="form.teamMembers[1].firstName"
-                type="text"
-              ></input>
-              <label for="team-member2-lname-input">Last Name:</label>
-              <input
-                id="team-member2-lname-input"
-                class="form-control"
-                v-model="form.teamMembers[1].lastName"
-                type="text"
-              ></input>
-              <label for="team-member2-role-input">Role:</label>
-              <input
-                id="team-member2-role-input"
-                class="form-control"
-                v-model="form.teamMembers[1].role"
-                type="text"
-              ></input>
-              <div class="form-check">
-                <input
-                  id="team-member2-opt"
-                  type="checkbox"
-                  class="form-check-input"
-                  v-model="form.teamMembers[1].optOut"
-                ></input>
-                <label class="form-check-label" for="team-member2-opt">Opt-out of website</label>
-              </div>
+                class="form-check-input"
+                type="radio"
+                :name="'inlineRadioOptions' + member.index"
+                :id="program + '-radio' + member.index"
+                :value="program"
+                v-model="form.teamMembers[member.index].program"
+              >
+              <label class="form-check-label" :for="program + '-radio' + member.index">{{ program }}</label>
             </div>
           </div>
+          
         </div>
       </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Team Member 3
-            </button>
-          </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="team-member3-fname-input">First Name:</label>
-              <input
-                id="team-member3-fname-input"
-                class="form-control"
-                v-model="form.teamMembers[2].firstName"
-                type="text"
-              ></input>
-              <label for="team-member3-lname-input">Last Name:</label>
-              <input
-                id="team-member3-lname-input"
-                class="form-control"
-                v-model="form.teamMembers[2].lastName"
-                type="text"
-              ></input>
-              <label for="team-member3-role-input">Role:</label>
-              <input
-                id="team-member3-role-input"
-                class="form-control"
-                v-model="form.teamMembers[2].role"
-                type="text"
-              ></input>
-              <div class="form-check">
-                <input
-                  id="team-member3-opt"
-                  type="checkbox"
-                  class="form-check-input"
-                  v-model="form.teamMembers[2].optOut"
-                ></input>
-                <label class="form-check-label" for="team-member3-opt">Opt-out of website</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingFour">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              Team Member 4
-            </button>
-          </h5>
-        </div>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-          <div class="card-body">
-            <div class="form-group">
-              <label for="team-member4-fname-input">First Name:</label>
-              <input
-                id="team-member4-fname-input"
-                class="form-control"
-                v-model="form.teamMembers[3].firstName"
-                type="text"
-              ></input>
-              <label for="team-member4-lname-input">Last Name:</label>
-              <input
-                id="team-member4-lname-input"
-                class="form-control"
-                v-model="form.teamMembers[3].lastName"
-                type="text"
-              ></input>
-              <label for="team-member4-role-input">Role:</label>
-              <input
-                id="team-member4-role-input"
-                class="form-control"
-                v-model="form.teamMembers[3].role"
-                type="text"
-              ></input>
-              <div class="form-check">
-                <input
-                  id="team-member4-opt"
-                  type="checkbox"
-                  class="form-check-input"
-                  v-model="form.teamMembers[3].optOut"
-                ></input>
-                <label class="form-check-label" for="team-member4-opt">Opt-out of website</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <button @click="addTeamMember()" type="button" class="btn btn-outline-dark">Add team member</button>
     </div>
 
-    <div class="form-group">
-      <label for="majors-select">Major(s):</label>
-      <select
-        id="majors-select"
-        class="form-control"
-        aria-describedby="majors-selected"
-        v-model="form.majors"
-        size="3"
-        multiple
-        required>
-        <option>INFO</option>
-        <option>MLIS</option>
-        <option>MSIM</option>
-      </select>
-      <small id="majors-selected" class="form-text text-muted">Selected: {{ form.majors }}</small>
-    </div>
-
-
-    <br>
-
-    <h2>Project Information</h2>
-    <p>Please fill out the following information regarding your Capstone project. After filling out all of the information, you will be able to preview your Capstone project page</p>
-    
-    <div class="form-group">
-      <label for="project-title-input">Project Title:</label>
-      <input
-        id="project-title-input"
-        class="form-control"
-        v-model="form.projectTitle"
-        type="text"
-        placeholder="Enter project title"
-        required
-      ></input>
-    </div>
-
-    <div class="form-group" aria-labelledby="sponsor-label">
-      <label>Is Your Project Sponsored?</label>
-      <div class="form-check">
+    <div class="mb-5">
+      <h2>Project Information</h2>
+      <p>Please fill out the following information regarding your Capstone project. After filling out all of the information, you will be able to preview your Capstone project page.</p>
+      <p><em>Reminder: The order of these sections will be the order of information displayed on your Capstone project page.</em></p>
+      
+      <div class="form-group">
+        <label for="project-title-input">Project Title</label>
         <input
-          type="radio"
-          id="yesSponsored"
-          name="yesSponsored"
-          class="form-check-input"
-          v-model="form.sponsored"
-          v-bind:value="true"
-        >
-        <label class="form-check-label" for="yesSponsored">
-          Yes
-        </label>
+          id="project-title-input"
+          class="form-control"
+          v-model="form.projectTitle"
+          type="text"
+          required
+        ></input>
       </div>
-      <div class="form-check">
-        <input
-          type="radio"
-          id="noSponsored"
-          name="noSponsored"
-          class="form-check-input"
-          v-model="form.sponsored"
-          v-bind:value="false"
-        >
-        <label class="form-check-label" for="noSponsored">
-          No
-        </label>
-      </div>
-    </div>
 
-    <div class="form-group" v-if="form.sponsored">
-        <label for="sponsor-input">Sponsor:</label>
+      <div class="form-group">
+        <label for="project-subtitle-input">Project Subtitle</label>
+        <small id="subtitle-helper" class="d-block">Write a 1-2 sentence summary descriptions of your project.</small>
+        <input
+          id="project-subtitle-input"
+          class="form-control"
+          v-model="form.projectSubtitle"
+          type="text"
+          required
+          aria-describedby="subtitle-helper"
+        ></input>
+      </div>
+
+      <div class="form-group" aria-labelledby="sponsor-label">
+        <label>Is Your Project Sponsored?</label>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="yesSponsored"
+            name="yesSponsored"
+            class="form-check-input"
+            v-model="form.sponsored"
+            v-bind:value="true"
+          >
+          <label class="form-check-label" for="yesSponsored">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="noSponsored"
+            name="noSponsored"
+            class="form-check-input"
+            v-model="form.sponsored"
+            v-bind:value="false"
+          >
+          <label class="form-check-label" for="noSponsored">
+            No
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group" v-if="form.sponsored">
+        <label for="sponsor-input">Sponsor</label>
         <input
           id="sponsor-input"
           class="form-control"
@@ -274,108 +162,302 @@
         ></input>
       </div>
 
-    <div class="form-group">
-      <label for="project-image-input">Project Image:</label>
-      <input
-        id="project-image-input"
-        type="file"
-        class="form-control-file"
-        v-on:change="processFile()"
-        required
-      ></input>
+      <div class="form-group">
+        <label for="projectImage">Project Image</label>
+        <input
+          id="projectImage"
+          type="file"
+          class="form-control-file"
+          v-on:change="processFile($event)"
+          required
+        ></input>
+      </div>
+
+      <div class="form-group">
+        <label for="projectImage-alt">Please provide alt text for the image</label>
+        <input
+          id="projectImage-alt"
+          class="form-control"
+          v-model="form.images.projectImage.alt"
+          type="text"
+          required
+        ></input>
+      </div>
+
+      <div class="form-group">
+        <label for="challenge-input">The Challenge</label>
+        <textarea
+          id="challenge-input"
+          class="form-control"
+          v-model="form.challenge"
+          type="text"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="outcome-input">The Outcome</label>
+        <textarea
+          id="outcome-input"
+          class="form-control"
+          v-model="form.outcome"
+          type="text"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="impact-input">The Impact</label>
+        <textarea
+          id="impact-input"
+          class="form-control"
+          v-model="form.impact"
+          type="text"
+          required
+        ></textarea>
+      </div>
     </div>
 
-    <!-- TODO: ask for alt text -->
+    <div class="mb-5">
+      <h2>Main Content Information</h2>
+      <p>Please fill out the following information regarding the main two sections you want to appear on your Capstone project page.</p>
+      <p><em>Reminder: The order of these sections will be the order of information displayed on your Capstone project page.</em></p>
+      
+      <div class="form-group">
+        <label for="maincontent-title-input0">Main Content Title #1</label>
+        <input
+          id="maincontent-title-input0"
+          class="form-control"
+          v-model="form.main[0].title"
+          type="text"
+          required
+        ></input>
+      </div>
+      <div class="form-group">
+        <label for="maincontent-description-input0">Main Content Description #1</label>
+        <textarea
+          id="maincontent-description-input0"
+          class="form-control"
+          rows="8"
+          v-model="form.main[0].content"
+          type="text"
+          required
+        ></textarea>
+      </div>
 
-    <div class="form-group">
-      <label for="challenge-input">The Challenge:</label>
-      <textarea
-        id="challenge-input"
-        class="form-control"
-        v-model="form.challenge"
-        type="text"
-        required
-      ></textarea>
+      <div class="form-group">
+        <label for="mainImage">Main Content Image</label>
+        <input
+          id="mainImage"
+          type="file"
+          class="form-control-file"
+          v-on:change="processFile($event)"
+        ></input>
+      </div>
+
+      <div class="form-group">
+        <label for="mainImage-alt">Please provide alt text for the image</label>
+        <input
+          id="mainImage-alt"
+          class="form-control"
+          v-model="form.images.mainImage.alt"
+          type="text"
+          required
+        ></input>
+      </div>
+
+
+      <div class="form-group">
+        <label for="maincontent-title-input1">Main Content Title #2</label>
+        <input
+          id="maincontent-title-input1"
+          class="form-control"
+          v-model="form.main[1].title"
+          type="text"
+          required
+        ></input>
+      </div>
+      <div class="form-group">
+        <label for="maincontent-description-input1">Main Content Description #2</label>
+        <textarea
+          id="maincontent-description-input1"
+          class="form-control"
+          rows="8"
+          v-model="form.main[1].content"
+          type="text"
+          required
+        ></textarea>
+      </div>
+
     </div>
 
-    <div class="form-group">
-      <label for="outcome-input">The Outcome:</label>
-      <textarea
-        id="outcome-input"
-        class="form-control"
-        v-model="form.outcome"
-        type="text"
-        required
-      ></textarea>
+    <div class="mb-5">
+      <h2>Additional Project Information</h2>
+
+      <div class="form-group">
+        <label for="next-steps-input">Next Steps</label>
+        <textarea
+          id="next-steps-input"
+          class="form-control"
+          rows="8"
+          v-model="form.nextSteps"
+          type="text"
+          required
+        ></textarea>
+      </div>
+
+      <div class="form-group" aria-labelledby="status-label">
+        <label id="status-label">What is the status of your project?</label>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="open-status"
+            name="open-status"
+            class="form-check-input"
+            v-model="form.status"
+            v-bind:value="true"
+          >
+          <label class="form-check-label" for="open-status">
+            Open
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="closed-status"
+            name="closed-status"
+            class="form-check-input"
+            v-model="form.status"
+            v-bind:value="false"
+          >
+          <label class="form-check-label" for="closed-status">
+            Closed
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group" aria-labelledby="link-label">
+        <label id="link-label">Does your project have links?</label>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="yesLinks"
+            name="yesLinks"
+            class="form-check-input"
+            v-model="link"
+            v-bind:value="true"
+          >
+          <label class="form-check-label" for="yesLinks">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="noLinks"
+            name="noLinks"
+            class="form-check-input"
+            v-model="link"
+            v-bind:value="false"
+          >
+          <!-- TODO: if changed to NO links should be deleted -->
+          <label class="form-check-label" for="noLinks">
+            No
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group" v-if="link">
+        <div class="form-group" v-for="(link, index) in form.links">
+          <label :for="'link-input'+index">Link</label>
+          <input
+            :id="'link-input'+index"
+            class="form-control"
+            v-model="form.links[index]"
+            type="text"
+          ></input>
+        </div>
+        <button @click="addLink()" type="button" class="btn btn-outline-dark">Add link</button>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="impact-input">The Impact:</label>
-      <textarea
-        id="impact-input"
-        class="form-control"
-        v-model="form.impact"
-        type="text"
-        required
-      ></textarea>
+
+
+      <!-- <div class="form-group">
+        <label for="introduction-input">Problem Statement:</label>
+        <input
+          id="problem-statement-input"
+          class="form-control"
+          v-model="form.problemStatement"
+          type="text"
+          required
+        ></input>
+      </div> -->
+
+      
+      <!-- <div class="form-group">
+        <label for="introduction-input">Introduction:</label>
+        <textarea
+          id="introduction-input"
+          class="form-control"
+          v-model="form.introduction"
+          type="text"
+          required
+        ></textarea>
+      </div> -->
+
+      <!-- <div class="form-group">
+        <label for="keyfeatures-input">Key Features:</label>
+        <textarea
+          id="keyfeatures-input"
+          class="form-control"
+          v-model="form.keyFeatures"
+          type="text"
+          required
+        ></textarea>
+      </div> -->
+    <div>
+      <h2>Tags</h2>
+
+      <div class="form-group">
+        <label for="topics-input">Topics (Select up to 3)</label>
+        <div class="form-check" v-for="topic in topics">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            :value="topic"
+            :id="topic"
+            v-model="form.topics"
+            :value="topic"
+            :disabled="form.topics.length >= 3 && !form.topics.includes(topic)" 
+          > 
+          <label class="form-check-label" :for="topic">
+            {{ topic }}
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="technology-input">Technology (Select up to 3)</label>
+        <div class="form-check" v-for="tech in technology">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            :value="tech"
+            :id="tech"
+            v-model="form.technology"
+            :value="topic"
+            :disabled="form.technology.length >= 3 && !form.technology.includes(tech)" 
+          > 
+          <label class="form-check-label" :for="tech">
+            {{ tech }}
+          </label>
+        </div>
+      </div>
+
     </div>
 
-    <div class="form-group">
-      <label for="introduction-input">Problem Statement:</label>
-      <input
-        id="problem-statement-input"
-        class="form-control"
-        v-model="form.problemStatement"
-        type="text"
-        required
-      ></input>
-    </div>
-
-    
-    <div class="form-group">
-      <label for="introduction-input">Introduction:</label>
-      <textarea
-        id="introduction-input"
-        class="form-control"
-        v-model="form.introduction"
-        type="text"
-        required
-      ></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="keyfeatures-input">Key Features:</label>
-      <textarea
-        id="keyfeatures-input"
-        class="form-control"
-        v-model="form.keyFeatures"
-        type="text"
-        required
-      ></textarea>
-    </div>
-
-    <div class="form-group">
-      <label for="topics-input">Topics:</label>
-      <select
-        id="topics-input"
-        class="form-control"
-        aria-describedby="topics-selected"
-        v-model="form.topics"
-        multiple
-        size="5"
-        required>
-        <!-- TODO: fill these in dynamically -->
-        <option>[temp] data viz</option>
-        <option>[temp] front end development</option>
-        <option>[temp] ux design</option>
-        <option>[temp] social justice</option>
-        <option>[temp] privacy</option>
-        <option>[temp] organization</option>
-      </select>
-      <small id="topics-selected" class="form-text text-muted">Selected: {{ form.topics }}</small>
-    </div>
-
-    
+    {{ this.form }}
 
     <button type="submit" class="btn btn-primary">Create Project Page</button>
   </form>

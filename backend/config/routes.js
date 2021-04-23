@@ -16,6 +16,7 @@ module.exports.routes = {
   'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
   'GET /new-data-page': { action: 'view-new-data-page' },
+  'GET /project/:projectTitle': { action: 'view-new-project-page' },
   'GET /old-data-page': { action: 'view-old-data-page' },
   'GET /submit': { action: 'view-submit' },
 
@@ -65,6 +66,10 @@ module.exports.routes = {
   // 'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
   // 'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   // 'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
-  // 'POST  /api/v1/observe-my-session':                 { action: 'observe-my-session', hasSocketFeatures: true },
+  // 'POST  /api/v1/project':                 { controller: 'ProjectController', action: 'createProject' },
+  'POST  /api/v1/project':                 { action: 'project/create-project' },
+  'GET /api/v1/project':                  { action: 'project/get-all-projects'},
+  'GET /api/v1/project/:projectTitle':                  { action: 'project/get-project'},
+  
 
 };

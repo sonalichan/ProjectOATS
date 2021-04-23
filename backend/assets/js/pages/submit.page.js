@@ -5,49 +5,55 @@ parasails.registerPage('submit', {
   data: {
     form: {
       projectTitle: '',
-      image: null,
-      // TODO: ask for alt text for image
+      projectSubtitle: '',
+      images: {
+        projectImage: {
+          file: null,
+          alt: ''
+        },
+        mainImage: {
+          file: null,
+          alt: ''
+        }
+      },
       teamMembers: [
         {
+          index: 0,
           firstName: '',
           lastName: '',
           role: '',
-          optOut: false
-        },
-        {
-          firstName: '',
-          lastName: '',
-          role: '',
-          optOut: false
-        },
-        {
-          firstName: '',
-          lastName: '',
-          role: '',
-          optOut: false
-        },
-        {
-          firstName: '',
-          lastName: '',
-          role: '',
-          optOut: false
-        },
+          optOut: false,
+          linkedIn: '',
+          program: ''
+        }
       ],
-      sponsored: false,
+      sponsored: true,
       sponsorName: '',
       challenge: '',
       outcome: '',
       impact: '',
-      problemStatement: '',
-      sponsored: false,
-      company: '',
-      majors: [],
-      introduction: '',
-      keyFeatures: '',
-      topics: []
+      main: [
+        {
+          index: 0,
+          title: '',
+          content: ''
+        },
+        {
+          index: 1,
+          title: '',
+          content: ''
+        }
+      ],
+      nextSteps: '',
+      status: true,
+      links: [''],
+      topics: [],
+      technology: [],
     },
-    topics: [{ text: 'Select up to three', value: null }, 'Data Visualization', 'Ethics', 'UX Design', 'AI'],
-    majors: [{ text: 'Select major(s) of team members', value: null}, "INFO", "MLIS", "MSIM"],
+    link: false,
+    topics: ['Data Visualization', 'Ethics', 'UX Design', 'AI', 'Privacy'],
+    technology: ['Figma', 'Django', 'Sails.js', 'React'],
+    programs: ["INFO", "MLIS", "MSIM"],
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -65,21 +71,51 @@ parasails.registerPage('submit', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     onSubmit(event) {
+      
       event.preventDefault()
-      alert(JSON.stringify(this.form))
 
       // TODO: form validation
       console.log(this.form);
 
-      // navigate to individual project page
-      this.goto('new-data-page', this.form);
+      // axios call
+      const res = axios.post('/api/v1/project',
+        this.form
+      ).then(() => {
+        console.log("axios call done")
+        var url = "project/" + encodeURI(this.form.projectTitle);
+        this.goto(url)
+      }).catch((err) => {
+        console.log(err);
+      })
+
+      // $.ajax({
+      //   type: "POST",
+      //   url: "/api/v1/project",
+      //   data: postData,
+      // }).then(() => {
+      //   console.log("ajax post done");
+      //   // this.goto('new-data-page')
+      // })
     },
-    processFile() {
-      // save file to variable here
-      console.log("process file");
-      console.log(this);
-      console.log(this.$get('$router'))
-      // this.goto('new-data-page', this.form)
+    addTeamMember() {
+      let currentIndex = this.form.teamMembers.length;
+      this.form.teamMembers.push({
+        index: currentIndex,
+        firstName: '',
+        lastName: '',
+        role: '',
+        optOut: false,
+        linkedIn: '',
+        program: ''
+      })
+    },
+    addLink() {
+      this.form.links.push('');
+    },
+    processFile(event) {
+      let targetID = event.target.id;
+      let image = document.getElementById(targetID);
+      this.form.images[targetID].file = image.value;
     }
   }
 });

@@ -44,6 +44,7 @@ module.exports.security = {
   *                                                                           *
   ****************************************************************************/
 
-  csrf: true
+  // TODO: set to true for production and send csrf token with api calls!!
+  csrf: false
 
 };
