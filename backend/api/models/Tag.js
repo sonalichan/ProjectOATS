@@ -12,13 +12,6 @@
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       
-      // ID of the tag 
-      tagID: {
-        type: 'number',
-        required: true,
-        example: '1'
-      },
-      
       // Name of the tag
       tagName: {
         type: 'String',

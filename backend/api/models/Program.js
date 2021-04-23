@@ -11,14 +11,6 @@
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      
-      // ID associated with specific iSchool program
-      programID: {
-        type: 'number',
-        required: true,
-        example: '1'
-        
-      },
 
       // Actual iSchool program name
       programName: {
