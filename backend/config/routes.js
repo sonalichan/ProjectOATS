@@ -15,7 +15,6 @@ module.exports.routes = {
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
-  'GET /new-data-page': { action: 'view-new-data-page' },
   'GET /project/:projectTitle': { action: 'view-new-project-page' },
   'GET /old-data-page': { action: 'view-old-data-page' },
   'GET /submit': { action: 'view-submit' },
