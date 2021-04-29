@@ -23,4 +23,56 @@
     font-weight: 500;
   }
 
+
+  // change carousel colors
+  .carousel-control-prev-icon { 
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); 
+    width: 30px;
+    height: 48px;
+  }
+  .carousel-control-next-icon { 
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    width: 30px;
+    height: 48px;
+  }
+
+  .carousel-item > div {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  a.carousel-control-prev, a.carousel-control-next {
+    width: 2%;
+
+  }
+
+  #customSections input[type="radio"] {
+    -webkit-appearance: none;
+  }
+
+  #customSections input[type="radio"]:checked + label {
+    // these classes are from custom components
+    .outer-box {
+      background-color: #5C3CA5;
+    }
+
+    .text-box, .image-box {
+        border-color: white;
+        color: white;
+    }
+  }
+
+  // .carousel-control-next-icon:after
+  // {
+  //   content: '>';
+  //   font-size: 55px;
+  //   color: black;
+  // }
+
+  // .carousel-control-prev-icon:after {
+  //   content: '<';
+  //   font-size: 55px;
+  //   color: black;
+  // }
+
 }
