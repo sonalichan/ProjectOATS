@@ -1,0 +1,54 @@
+
+/**
+ * TODO: change to match your component name---use kebab-case here
+ * <two-picture-section-icon>
+ *
+ * App-wide styles for our ajax buttons.
+ */
+
+ // TODO: change to match your component name---use kebab-case here
+ [parasails-component='two-picture-section-icon'] {
+
+    margin: 10px;
+
+    .image-box {
+        border: solid 1px #9D9D9D;
+        color: #9D9D9D;
+        width: 45%;
+        height: 100%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .icon-container {
+        text-align: center;
+        width: 95%;
+        margin: auto auto;
+    }
+
+    .outer-box {
+        width: 400px;
+        height: 250px;
+        padding: 40px 30px 40px 30px;
+        border: solid 1px #E5E5E5;
+        border-radius: 20px;
+        box-shadow:
+            0.1px 0.1px 1.3px rgba(0, 0, 0, 0.015),
+            0.3px 0.3px 6.2px rgba(0, 0, 0, 0.022),
+            0.8px 0.8px 18px rgba(0, 0, 0, 0.031),
+            04px 4px 10px rgba(0, 0, 0, 0.07)
+            ;
+    }
+
+    .outer-box.selected {
+        background-color: #5C3CA5;
+
+        .image-box {
+            border-color: white;
+            color: white;
+        }
+    }
+}
+ 
