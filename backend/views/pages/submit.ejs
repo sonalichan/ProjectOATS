@@ -224,7 +224,7 @@
       <h2>Main Content Information</h2>
       <p>Please fill out the following information regarding the main two sections you want to appear on your Capstone project page.</p>
       <p><em>Reminder: The order of these sections will be the order of information displayed on your Capstone project page.</em></p>
-      
+
       <div class="form-group">
         <label for="maincontent-title-input0">Main Content Title #1</label>
         <input
@@ -235,60 +235,75 @@
           required
         ></input>
       </div>
-      <div class="form-group">
-        <label for="maincontent-description-input0">Main Content Description #1</label>
-        <textarea
-          id="maincontent-description-input0"
-          class="form-control"
-          rows="8"
-          v-model="form.main[0].content"
-          type="text"
-          required
-        ></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="mainImage">Main Content Image</label>
-        <input
-          id="mainImage"
-          type="file"
-          class="form-control-file"
-          v-on:change="processFile($event)"
-        ></input>
-      </div>
-
-      <div class="form-group">
-        <label for="mainImage-alt">Please provide alt text for the image</label>
-        <input
-          id="mainImage-alt"
-          class="form-control"
-          v-model="form.images.mainImage.alt"
-          type="text"
-          required
-        ></input>
-      </div>
-
-
-      <div class="form-group">
-        <label for="maincontent-title-input1">Main Content Title #2</label>
-        <input
-          id="maincontent-title-input1"
-          class="form-control"
-          v-model="form.main[1].title"
-          type="text"
-          required
-        ></input>
-      </div>
-      <div class="form-group">
-        <label for="maincontent-description-input1">Main Content Description #2</label>
-        <textarea
-          id="maincontent-description-input1"
-          class="form-control"
-          rows="8"
-          v-model="form.main[1].content"
-          type="text"
-          required
-        ></textarea>
+      
+      <div id="customSections" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div>
+              <h3>Text Only</h3>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="radio" name="section-choices-1" id="one-text" aria-label="Section with one text block">
+                  <label for="one-text">
+                    <one-text-section-icon></one-text-section-icon>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" name="section-choices-1" id="two-text" aria-label="Section with two text blocks next to each other">
+                  <label for="two-text">
+                    <two-text-section-icon></two-text-section-icon>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div>
+              <h3>Pictures and Text</h3>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="radio" name="section-choices-1" id="mixed-text-left" aria-label="Section with text block on the left and picture block on the right">
+                  <label for="mixed-text-left">
+                    <mixed-text-left-section-icon></mixed-text-left-section-icon>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" name="section-choices-1" id="mixed-text-right" aria-label="Section with picture block on the left and text block on the right">
+                  <label for="mixed-text-right">
+                    <mixed-text-right-section-icon></mixed-text-right-section-icon>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div>
+              <h3>Pictures Only</h3>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="radio" name="section-choices-1" id="one-picture" aria-label="Section with one picture block">
+                  <label for="one-picture">
+                    <one-picture-section-icon></one-picture-section-icon>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" name="section-choices-1" id="two-picture" aria-label="Section with two picture blocks next to each other">
+                  <label for="two-picture">
+                    <two-picture-section-icon></two-picture-section-icon>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#customSections" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#customSections" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
 
     </div>
