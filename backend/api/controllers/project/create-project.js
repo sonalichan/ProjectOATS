@@ -83,7 +83,8 @@ module.exports = {
 
     var body = this.req.body;
 
-    let newProject = await Project.create({
+    // create new project first
+    var newProject = await Project.create({
       projectTitle: body.projectTitle,
       projectSubtitle: body.projectSubtitle,
       oldProject: false,
@@ -98,6 +99,20 @@ module.exports = {
       mainTitle2: body.main[1].title,
       mainContent2: body.main[1].content,
     }).fetch();
+
+    // create each member next and associate with project's id
+    body.teamMembers.forEach(async (member) => {
+      await Student.create({
+        firstName: member.firstName,
+        lastName: member.lastName,
+        linkedinURL: member.linkedIn,
+        role: member.role,
+        program: member.program,
+        optOut: member.optOut,
+
+        owner: newProject.id,
+      });
+    });
 
   }
 
