@@ -38,15 +38,18 @@
       <p style="text-align: center;"><%= nextSteps %></p>
     </div>
 
-    <div class="d-flex justify-content-around">
-      <% for (let member of members) { %>
-        <team-member
-        fname="<%= member.firstName %>"
-        lname="<%= member.lastName %>"
-        role="<%= member.role %>"
-      ></team-member>
-      <% } %>
-  </div>
+    <div style="margin-top: 40px; padding: 0px 30px 0px 30px; margin-bottom: 100px">
+      <h2 style="font-size: 24px; text-align: center; margin-bottom: 30px;">Team Members</h2>
+      <p class="d-flex justify-content-around">
+        <% for (let member of members) { %>
+          <team-member
+          fname="<%= member.firstName %>"
+          lname="<%= member.lastName %>"
+          role="<%= member.role %>"
+        ></team-member>
+        <% } %>
+        </p>
+    </div>
   </main>
 
 </div>
