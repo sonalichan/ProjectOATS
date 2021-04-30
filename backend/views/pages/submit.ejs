@@ -236,21 +236,21 @@
         ></input>
       </div>
       
-      <div id="customSections" class="carousel slide" data-ride="carousel" data-interval="false">
+      <div id="customSections1" class="carousel slide mb-4" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div>
               <h3>Text Only</h3>
               <div class="d-flex justify-content-between">
                 <div>
-                  <input type="radio" name="section-choices-1" id="one-text" aria-label="Section with one text block">
-                  <label for="one-text">
+                  <input type="radio" name="section-choices-1" id="one-text-1" aria-label="Section with one text block">
+                  <label for="one-text-1">
                     <one-text-section-icon></one-text-section-icon>
                   </label>
                 </div>
                 <div>
-                  <input type="radio" name="section-choices-1" id="two-text" aria-label="Section with two text blocks next to each other">
-                  <label for="two-text">
+                  <input type="radio" name="section-choices-1" id="two-text-1" aria-label="Section with two text blocks next to each other">
+                  <label for="two-text-1">
                     <two-text-section-icon></two-text-section-icon>
                   </label>
                 </div>
@@ -262,14 +262,14 @@
               <h3>Pictures and Text</h3>
               <div class="d-flex justify-content-between">
                 <div>
-                  <input type="radio" name="section-choices-1" id="mixed-text-left" aria-label="Section with text block on the left and picture block on the right">
-                  <label for="mixed-text-left">
+                  <input type="radio" name="section-choices-1" id="mixed-text-left-1" aria-label="Section with text block on the left and picture block on the right">
+                  <label for="mixed-text-left-1">
                     <mixed-text-left-section-icon></mixed-text-left-section-icon>
                   </label>
                 </div>
                 <div>
-                  <input type="radio" name="section-choices-1" id="mixed-text-right" aria-label="Section with picture block on the left and text block on the right">
-                  <label for="mixed-text-right">
+                  <input type="radio" name="section-choices-1" id="mixed-text-right-1" aria-label="Section with picture block on the left and text block on the right">
+                  <label for="mixed-text-right-1">
                     <mixed-text-right-section-icon></mixed-text-right-section-icon>
                   </label>
                 </div>
@@ -281,14 +281,14 @@
               <h3>Pictures Only</h3>
               <div class="d-flex justify-content-between">
                 <div>
-                  <input type="radio" name="section-choices-1" id="one-picture" aria-label="Section with one picture block">
-                  <label for="one-picture">
+                  <input type="radio" name="section-choices-1" id="one-picture-1" aria-label="Section with one picture block">
+                  <label for="one-picture-1">
                     <one-picture-section-icon></one-picture-section-icon>
                   </label>
                 </div>
                 <div>
-                  <input type="radio" name="section-choices-1" id="two-picture" aria-label="Section with two picture blocks next to each other">
-                  <label for="two-picture">
+                  <input type="radio" name="section-choices-1" id="two-picture-1" aria-label="Section with two picture blocks next to each other">
+                  <label for="two-picture-1">
                     <two-picture-section-icon></two-picture-section-icon>
                   </label>
                 </div>
@@ -296,11 +296,93 @@
             </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#customSections" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#customSections1" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#customSections" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#customSections1" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+
+      <div class="form-group">
+        <label for="maincontent-title-input1">Main Content Title #2</label>
+        <input
+          id="maincontent-title-input1"
+          class="form-control"
+          v-model="form.main[1].title"
+          type="text"
+          required
+        ></input>
+      </div>
+      
+      <div id="customSections2" class="carousel slide mb-4" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div>
+              <h3>Text Only</h3>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="radio" name="section-choices-2" id="one-text-2" aria-label="Section with one text block">
+                  <label for="one-text-2">
+                    <one-text-section-icon></one-text-section-icon>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" name="section-choices-2" id="two-text-2" aria-label="Section with two text blocks next to each other">
+                  <label for="two-text-2">
+                    <two-text-section-icon></two-text-section-icon>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div>
+              <h3>Pictures and Text</h3>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="radio" name="section-choices-2" id="mixed-text-left-2" aria-label="Section with text block on the left and picture block on the right">
+                  <label for="mixed-text-left-2">
+                    <mixed-text-left-section-icon></mixed-text-left-section-icon>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" name="section-choices-2" id="mixed-text-right-2" aria-label="Section with picture block on the left and text block on the right">
+                  <label for="mixed-text-right-2">
+                    <mixed-text-right-section-icon></mixed-text-right-section-icon>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div>
+              <h3>Pictures Only</h3>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <input type="radio" name="section-choices-2" id="one-picture-2" aria-label="Section with one picture block">
+                  <label for="one-picture-2">
+                    <one-picture-section-icon></one-picture-section-icon>
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" name="section-choices-2" id="two-picture-2" aria-label="Section with two picture blocks next to each other">
+                  <label for="two-picture-2">
+                    <two-picture-section-icon></two-picture-section-icon>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#customSections2" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#customSections2" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>

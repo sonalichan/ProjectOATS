@@ -46,11 +46,19 @@
 
   }
 
-  #customSections input[type="radio"] {
+  #customSections1 .slide-title,
+  #customSections2 .slide-title {
+    font-size: 20px;
+    padding-top: 85px;
+  }
+
+  #customSections1 input[type="radio"],
+  #customSections2 input[type="radio"]{
     -webkit-appearance: none;
   }
 
-  #customSections input[type="radio"]:checked + label {
+  #customSections1 input[type="radio"]:checked + label,
+  #customSections2 input[type="radio"]:checked + label{
     // these classes are from custom components
     .outer-box {
       background-color: #5C3CA5;
@@ -61,18 +69,5 @@
         color: white;
     }
   }
-
-  // .carousel-control-next-icon:after
-  // {
-  //   content: '>';
-  //   font-size: 55px;
-  //   color: black;
-  // }
-
-  // .carousel-control-prev-icon:after {
-  //   content: '<';
-  //   font-size: 55px;
-  //   color: black;
-  // }
 
 }
