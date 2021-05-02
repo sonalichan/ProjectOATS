@@ -1,25 +1,25 @@
 <div id="new-data-page" v-cloak>
 
-  <main>
+  
     <h1 style="text-align: center; margin-top: 50px;"><%= projectTitle %></h1>
     <p style="text-align: center;"><%= projectSubtitle %></p>
     <!-- <image :src="project.image" alt="data diary image" style="width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px"/> -->
     <div style="background-color: lightgray; width: 100%; height: 300px; margin-bottom: 20px "><i class="fa fa-picture-o" style="position: absolute; right: 50%; margin-top: 140px;"></i></div>
 
-      
-    <div class="d-flex justify-content-around">
-      <div class="project-steps" style="padding: 10px; flex: 1; text-align: center;">
+  <main style="width: 50%; margin: auto auto;">
+    <div class="d-flex justify-content-between">
+      <div class="project-steps" style="width: 40%">
         <h2 style="font-size: 24px">THE CHALLENGE</h2>
-        <p style="font-size: 14px"><%= challenge %></p>
+        <p style="font-size: 14px"><em><%= challenge %></em></p>
       </div>
-      <div class="project-steps" style="padding: 10px; flex: 1; text-align: center;">
+      <div class="project-steps" style="width: 40%">
         <h2 style="font-size: 24px">THE OUTCOME</h2>
-        <p style="font-size: 14px"><%= outcome %></p>
+        <p style="font-size: 14px"><em><%= outcome %></em></p>
       </div>
-      <div class="project-steps" style="padding: 10px; flex: 1; text-align: center;">
-        <h2 style="font-size: 24px">THE IMPACT</h2>
-        <p style="font-size: 14px"><%= impact %></p>
-      </div>
+    </div>
+    <div class="project-steps">
+      <h2 style="font-size: 24px">THE IMPACT</h2>
+      <p style="font-size: 14px"><em><%= impact %></em></p>
     </div>
 
     <div style="margin-top: 40px; padding: 0px 30px 0px 30px; margin-bottom: 100px">
