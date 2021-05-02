@@ -91,6 +91,8 @@
       </div>
 
       <button @click="addTeamMember()" type="button" class="btn btn-outline-dark">Add team member</button>
+      <!-- <button @click="deleteTeamMember()" type="button" class="btn btn-outline-danger absolute-end">Delete team member</button> -->
+
     </div>
 
     <div class="mb-5">
@@ -377,7 +379,7 @@
             type="text"
           ></input>
         </div>
-        <button @click="addLink()" type="button" class="btn btn-outline-dark">Add link</button>
+        <button @click="addLink()" type="button" class="btn btn-outline-dark">Add another link</button>
       </div>
     </div>
 
@@ -456,8 +458,6 @@
       </div>
 
     </div>
-
-    {{ this.form }}
 
     <button type="submit" class="btn btn-primary">Create Project Page</button>
   </form>

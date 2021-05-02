@@ -11,31 +11,6 @@ module.exports = {
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      
-      // Student's best email address for contact
-      emailAddress: {
-        type: 'string',
-        required: false,
-        isEmail: true,
-        maxLength: 200,
-        example: 'mary.sue@example.com'
-      },
-      
-      // The url for a student's LinkedIn profile
-      linkedinURL: {
-        type: 'string',
-        required: false,
-        description: 'Link to student\'s LinkedIn profile',
-        example: 'https://www.linkedin.com/in/Mary-Sue/' 
-      },
-
-      // A student's project role
-      projectRole: {
-          type: 'string',
-          required: true,
-          description: 'Students\' role in project',
-          example: 'Developer'
-      },
 
       // The student's first name
       firstName: {
@@ -53,6 +28,29 @@ module.exports = {
         description: 'Full representation of the student\'s last name.',
         maxLength: 120,
         example: 'Sue'
+      },
+
+      // The url for a student's LinkedIn profile
+      linkedinURL: {
+        type: 'string',
+        required: false,
+        description: 'Link to student\'s LinkedIn profile',
+        example: 'https://www.linkedin.com/in/Mary-Sue/' 
+      },
+
+      // A student's project role
+      role: {
+          type: 'string',
+          required: true,
+          description: 'Students\' role in project',
+          example: 'Developer'
+      },
+
+      program: {
+        type: 'string',
+        required: true,
+        description: 'Program that student is in',
+        example: 'INFO'
       },
 
       // Student's decision to opt out of having their information on the Capstone page or not
@@ -74,12 +72,8 @@ module.exports = {
       
       // One to many relationship with Student being the child of ProjectTeam
       owner: {
-        model: 'ProjectTeam'
+        model: 'project'
       },
-      programs:{
-        collection: 'Program',
-        via: 'owner'
-      }
     },
   
   

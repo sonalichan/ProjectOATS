@@ -95,7 +95,7 @@
 
       mainContent2: {
         type: 'string',
-      }
+      },
 
 
 
@@ -108,6 +108,11 @@
       //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
       //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
       // n/a
+
+      members: {
+        collection: 'student',
+        via: 'owner'
+      }
     
     },
   

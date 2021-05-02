@@ -29,24 +29,7 @@ module.exports = {
 
         var project = await Project.findOne({
             projectTitle: projectTitle
-        });
-
-        console.log(project);
-
-        // add members here:
-        // TODO: do query to get members associated with project
-        project.members = [
-            {
-                firstName: "Erin",
-                lastName: "Rochfort",
-                role: "Developer"
-            },
-            {
-                firstName: "Shareen",
-                lastName: "Chang",
-                role: "UX Designer"
-            }
-        ]
+        }).populate('members');
 
         console.log(project);
 
