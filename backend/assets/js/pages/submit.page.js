@@ -11,6 +11,10 @@ parasails.registerPage('submit', {
           file: null,
           alt: ''
         },
+        tileImage: {
+          file: null,
+          alt: ''
+        },
         mainImage: {
           file: null,
           alt: ''
