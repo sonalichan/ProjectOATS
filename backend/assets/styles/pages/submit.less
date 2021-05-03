@@ -19,8 +19,54 @@
     margin-top: 60px;
   }
 
+  form .button-container {
+    text-align: center
+  }
+
+  .step-container {
+    display: inlne-block;
+  }
+
+  span.dot {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+    display: inline-block;
+    margin: 0 5px 0 5px;
+  }
+
+  form .dot.active {
+    background-color: #5C3CA5;
+  }
+
+  form small {
+    font-style: italic;
+    color: #515151;
+  }
+
+  form input[type="text"], form textarea {
+    border-radius: 20px;
+  }
+
   .form-group label {
     font-weight: 500;
+  }
+
+  .btn-purple {
+    background-color: #5C3CA5;
+    color: white;
+  }
+
+  .btn-outline-purple {
+    border-color: #5C3CA5;
+    background-color: white;
+    color: #5C3CA5;
+  }
+
+  .form-group.required .control-label:after {
+    content: "*";
+    color: red;
   }
 
 

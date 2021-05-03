@@ -50,10 +50,11 @@ parasails.registerPage('submit', {
       topics: [],
       technology: [],
     },
+    step: 1,
     link: false,
     topics: ['Data Visualization', 'Ethics', 'UX Design', 'AI', 'Privacy'],
     technology: ['Figma', 'Django', 'Sails.js', 'React'],
-    programs: ["INFO", "MLIS", "MSIM"],
+    programs: ["INFO", "MLIS", "MLIS Online", "MSIM"],
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -116,6 +117,15 @@ parasails.registerPage('submit', {
       let targetID = event.target.id;
       let image = document.getElementById(targetID);
       this.form.images[targetID].file = image.value;
+    },
+    nextStep() {
+      this.step++;
+      window.scrollTo(0,0);
+      // TODO: reset focus to top of page
+    },
+    back() {
+      this.step--;
+      window.scrollTo(0,0);
     }
   }
 });
