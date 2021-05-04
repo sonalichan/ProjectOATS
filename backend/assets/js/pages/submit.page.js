@@ -15,7 +15,7 @@ parasails.registerPage('submit', {
           file: null,
           alt: ''
         },
-        mainImage: {
+        heroImage: {
           file: null,
           alt: ''
         }
@@ -39,14 +39,32 @@ parasails.registerPage('submit', {
       main: [
         {
           index: 0,
+          template: '',
           title: '',
-          content: ''
+          mainText: '',
+          leftText: '',
+          rightText: '',
+          mainPicture: null,
+          mainAlt: '',
+          leftPicture: null,
+          leftAlt: '',
+          rightPicture: null,
+          rightAlt: ''
         },
         {
           index: 1,
+          template: '',
           title: '',
-          content: ''
-        }
+          mainText: '',
+          leftText: '',
+          rightText: '',
+          mainPicture: null,
+          mainAlt: '',
+          leftPicture: null,
+          leftAlt: '',
+          rightPicture: null,
+          rightAlt: ''
+        },
       ],
       nextSteps: '',
       status: true,
@@ -55,6 +73,7 @@ parasails.registerPage('submit', {
       technology: [],
     },
     step: 1,
+    submit: false,
     link: false,
     topics: ['Data Visualization', 'Ethics', 'UX Design', 'AI', 'Privacy'],
     technology: ['Figma', 'Django', 'Sails.js', 'React'],
@@ -76,11 +95,7 @@ parasails.registerPage('submit', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     onSubmit(event) {
-      
-      event.preventDefault()
-
-      // TODO: form validation
-      console.log(this.form);
+      event.preventDefault();
 
       // axios call
       const res = axios.post('/api/v1/project',
@@ -102,6 +117,9 @@ parasails.registerPage('submit', {
       //   // this.goto('new-data-page')
       // })
     },
+    validateForm() {
+      this.submit = true;
+    },
     addTeamMember() {
       let currentIndex = this.form.teamMembers.length;
       this.form.teamMembers.push({
@@ -118,9 +136,9 @@ parasails.registerPage('submit', {
       this.form.links.push('');
     },
     processFile(event) {
-      let targetID = event.target.id;
-      let image = document.getElementById(targetID);
-      this.form.images[targetID].file = image.value;
+      // let targetID = event.target.id;
+      // let image = document.getElementById(targetID);
+      // this.form.images[targetID].file = image.value;
     },
     nextStep() {
       this.step++;
