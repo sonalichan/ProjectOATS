@@ -37,7 +37,7 @@ parasails.registerComponent('teamMember', {
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
     <div class="team-member">
-        <p><strong>{{ fname }} {{lname}}</strong></p>
+        <p class="name"><strong>{{ fname }} {{lname}}</strong></p>
         <p><em>{{ role }}</em></p>
     </div>
     `,
