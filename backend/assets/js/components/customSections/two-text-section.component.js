@@ -18,8 +18,8 @@ parasails.registerComponent('twoTextSection', {
     //  ╠═╝╠╦╝║ ║╠═╝╚═╗
     //  ╩  ╩╚═╚═╝╩  ╚═╝
     props: [
-      "text1",
-      "text2"
+      "lefttext",
+      "righttext"
     ],
   
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -36,11 +36,12 @@ parasails.registerComponent('twoTextSection', {
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
     <div class="d-flex justify-content-between">
-        <div>
-            {{ text1 }}
+        <div class="w-45">
+          left text:
+          {{ lefttext }}
         </div>
-        <div>
-            {{ text2}}
+        <div class="w-45">
+          {{ righttext }}
         </div>
     </div>
     `,

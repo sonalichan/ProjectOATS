@@ -2,7 +2,7 @@
  * TODO: change the component name to match--use kebab-case here
  * This is how you will reference your component
  * 
- * <one-text-section>
+ * <mixed-text-right-section>
  * -----------------------------------------------------------------------------
  * A button with a built-in loading spinner.
  *
@@ -13,12 +13,14 @@
  */
 
 // TODO: change the component name to match file name--use camelCase here
-parasails.registerComponent('oneTextSection', {
+parasails.registerComponent('mixedTextRightSection', {
     //  ╔═╗╦═╗╔═╗╔═╗╔═╗
     //  ╠═╝╠╦╝║ ║╠═╝╚═╗
     //  ╩  ╩╚═╚═╝╩  ╚═╝
     props: [
-      "maintext",
+      "righttext",
+      "leftpicture",
+      "leftalt"
     ],
   
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -34,8 +36,11 @@ parasails.registerComponent('oneTextSection', {
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
-    <div>
-        {{ maintext }}
+    <div class="d-flex justify-content-between">
+        <img :src="leftpicture" :alt="leftalt" class="w-45">
+        <div class="w-45">
+            {{ righttext }}
+        </div>
     </div>
     `,
   
