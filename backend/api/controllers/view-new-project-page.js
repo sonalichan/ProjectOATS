@@ -29,9 +29,9 @@ module.exports = {
 
         var project = await Project.findOne({
             projectTitle: projectTitle
-        }).populate('members');
+        }).populate('members').populate('mainContent');
 
-        console.log(project);
+        console.log(project); 
 
         if (!project) {
             sails.log("Could not find project with that title")

@@ -63,37 +63,12 @@
         type: 'string',
       },
 
-      // // Problem Statement of the project
-      // problemStatement: {
-      //   type: 'string',
-      // },
-
-      // // Introduction of project describing background information 
-      // introduction:{
-      //   type: 'string',
-      // },
       nextSteps: {
         type: 'string'
       },
 
       // Summary of project
       abstract: {
-        type: 'string',
-      },
-
-      mainTitle1: {
-        type: 'string',
-      },
-
-      mainContent1: {
-        type: 'string',
-      },
-
-      mainTitle2: {
-        type: 'string',
-      },
-
-      mainContent2: {
         type: 'string',
       },
 
@@ -111,6 +86,11 @@
 
       members: {
         collection: 'student',
+        via: 'owner'
+      },
+
+      mainContent: {
+        collection: 'maincontent',
         via: 'owner'
       }
     

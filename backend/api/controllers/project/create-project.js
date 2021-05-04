@@ -114,6 +114,26 @@ module.exports = {
       });
     });
 
+    // create main content blocks and associate with project's id
+    body.main.forEach(async (c) => {
+      await MainContent.create({
+        index: c.index,
+        template: c.template,
+        title: c.title,
+        mainText: c.mainText,
+        leftText: c.leftText,
+        rightText: c.rightText,
+        mainPicture: c.mainPicture,
+        mainAlt: c.mainAlt,
+        leftPicture: c.leftPicture,
+        leftAlt: c.leftAlt,
+        rightPicture: c.rightPicture,
+        rightAlt: c.rightAlt,
+
+        owner: newProject.id,
+      })
+    });
+
   }
 
 };
