@@ -4,53 +4,28 @@ parasails.registerPage('submit', {
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
     form: {
-      projectTitle: '',
-      projectSubtitle: '',
-      images: {
-        projectImage: {
-          file: null,
-          alt: ''
-        },
-        tileImage: {
-          file: null,
-          alt: ''
-        },
-        heroImage: {
-          file: null,
-          alt: ''
-        }
-      },
-      teamMembers: [
+      title: '',
+      tagline: '',
+      tileImage: null,
+      heroImage: null,
+      heroImageAlt: '',
+      members: [
         {
           index: 0,
           firstName: '',
           lastName: '',
           role: '',
           optOut: false,
-          linkedIn: '',
+          linkedInURL: '',
           program: ''
         }
       ],
       sponsored: true,
-      sponsorName: '',
+      sponsor: '',
       challenge: '',
       outcome: '',
       impact: '',
       main: [
-        {
-          index: 0,
-          template: '',
-          title: '',
-          mainText: '',
-          leftText: '',
-          rightText: '',
-          mainPicture: null,
-          mainAlt: '',
-          leftPicture: null,
-          leftAlt: '',
-          rightPicture: null,
-          rightAlt: ''
-        },
         {
           index: 1,
           template: '',
@@ -65,9 +40,23 @@ parasails.registerPage('submit', {
           rightPicture: null,
           rightAlt: ''
         },
+        {
+          index: 2,
+          template: '',
+          title: '',
+          mainText: '',
+          leftText: '',
+          rightText: '',
+          mainPicture: null,
+          mainAlt: '',
+          leftPicture: null,
+          leftAlt: '',
+          rightPicture: null,
+          rightAlt: ''
+        },
       ],
       nextSteps: '',
-      status: true,
+      status: '',
       links: [''],
       topics: [],
       technology: [],
@@ -102,7 +91,7 @@ parasails.registerPage('submit', {
         this.form
       ).then(() => {
         console.log("axios call done")
-        var url = "project/" + encodeURI(this.form.projectTitle);
+        var url = "project/" + encodeURI(this.form.title);
         this.goto(url)
       }).catch((err) => {
         console.log(err);
@@ -121,19 +110,36 @@ parasails.registerPage('submit', {
       this.submit = true;
     },
     addTeamMember() {
-      let currentIndex = this.form.teamMembers.length;
-      this.form.teamMembers.push({
+      let currentIndex = this.form.members.length;
+      this.form.members.push({
         index: currentIndex,
         firstName: '',
         lastName: '',
         role: '',
         optOut: false,
-        linkedIn: '',
+        linkedInURL: '',
         program: ''
       })
     },
     addLink() {
       this.form.links.push('');
+    },
+    addMainContent() {
+      let currentIndex = this.form.main.length;
+      this.form.main.push({
+        index: currentIndex + 1,
+        template: '',
+        title: '',
+        mainText: '',
+        leftText: '',
+        rightText: '',
+        mainPicture: null,
+        mainAlt: '',
+        leftPicture: null,
+        leftAlt: '',
+        rightPicture: null,
+        rightAlt: ''
+      })
     },
     processFile(event) {
       // let targetID = event.target.id;

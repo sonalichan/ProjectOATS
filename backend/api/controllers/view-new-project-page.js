@@ -25,13 +25,11 @@ module.exports = {
     },
 
     fn: async function (req, res) {
-        var projectTitle = this.req.param('projectTitle');
+        var title = this.req.param('projectTitle');
 
         var project = await Project.findOne({
-            projectTitle: projectTitle
-        }).populate('members').populate('mainContent');
-
-        console.log(project); 
+            title: title
+        }).populate('members').populate('main');
 
         if (!project) {
             sails.log("Could not find project with that title")

@@ -13,13 +13,13 @@
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
       // Title of project
-      projectTitle: {
+      title: {
         type: 'string',
         required: true,
         example: 'Reimagining the Capstone Archive'
       },
 
-      projectSubtitle: {
+      tagline: {
         type: 'string',
         required: true
       },
@@ -89,7 +89,7 @@
         via: 'owner'
       },
 
-      mainContent: {
+      main: {
         collection: 'maincontent',
         via: 'owner'
       }
