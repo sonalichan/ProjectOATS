@@ -1,7 +1,12 @@
+
 <div id="homepage" style="background-color: #E5E5E5" v-cloak>
   <navbar placeholder="Search"></navbar>
-  {{projects[1]}}
   <carousel></carousel>
+  <div >
+    <!-- {{project}} 
+    project.title
+    <project-card :name="project.title"></project-card> -->
+  </div> 
   <!-- explore work by major section. Will become a component later -->
   <div class="d-flex justify-content-around align-items-center" style="background-color: #5C3CA5; color: white; padding: 30px; margin-bottom: 30px;">
     <div>
@@ -40,15 +45,23 @@
     <hr style="border: 1px solid rgba(116, 116, 116, 0.5);">  
     <br/>
       <div class= 'column'>
-        <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Sponsored</span>
+        <span style="padding-left: 30px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Sponsored</span>
         <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&lt</button>
         <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&gt</button>
         <div class = 'row' id="Sponsored">
-          <project-card></project-card>
-          <project-card></project-card>
-          <project-card></project-card>
+          <div v-for="project in projects">
+            <project-card 
+              :name="project.title"
+              :sponsored="project.sponsored"
+              :year=2020
+              src="https://ischool.uw.edu/sites/default/files/styles/max_140x140/public/capstone/2019/3914/title-image-team-lemond.png?itok=DNUr-Zj5%22%20alt=%22Project%20Logo%22"
+              url="http://localhost:1337/project/Age%20Friendly%20Businesses"
+              :description="project.tagline"
+            >
+            </project-card>
+          </div>
         </div>
-        <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Individual</span>
+        <!-- <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Individual</span>
         <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&lt</button>
         <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&gt</button>
         <div class = 'row' id="Individual">
@@ -63,7 +76,7 @@
           <project-card></project-card>
           <project-card></project-card>
           <project-card></project-card>
-        </div>
+        </div>-->
       </div>
   </div>
   
