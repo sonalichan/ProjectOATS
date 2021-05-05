@@ -34,13 +34,13 @@ module.exports = {
     var newProject = await Project.create({
       title: body.title,
       tagline: body.tagline,
-      oldProject: false,
       sponsored: body.sponsored,
       sponsor: body.sponsor,
       challenge: body.challenge,
       outcome: body.outcome,
       impact: body.impact,
       nextSteps: body.nextSteps,
+      status: body.status
     }).fetch();
 
     // create each member next and associate with project's id
@@ -74,6 +74,26 @@ module.exports = {
         rightAlt: c.rightAlt,
 
         owner: newProject.id,
+      })
+    });
+
+    // create topic tags and associate with project's id
+    body.topics.forEach(async (t) => {
+      await Tag.create({
+        name: t,
+        category: "topics",
+
+        owner: newProject.id
+      })
+    });
+
+    // create tags and associate with project's id
+    body.technology.forEach(async (t) => {
+      await Tag.create({
+        name: t,
+        category: "technology",
+
+        owner: newProject.id
       })
     });
 

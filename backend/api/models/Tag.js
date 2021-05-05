@@ -13,10 +13,15 @@
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       
       // Name of the tag
-      tagName: {
-        type: 'String',
+      name: {
+        type: 'string',
         required: true,
         example: 'Public Health'
+      },
+
+      category: {
+        type: 'string',
+        example: 'Topics'
       },
       
       //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
@@ -28,6 +33,10 @@
       //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
       //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
       // n/a
+
+      owner: {
+        model: 'project'
+      },
   
     },
   

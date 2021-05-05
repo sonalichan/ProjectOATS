@@ -21,6 +21,12 @@ module.exports = {
         description: 'The provided post data was invalid.',
         extendedDescription: ''
       },
+
+      notFound: {
+        description: 'No project was found with that project title',
+        responseType: 'notFound',
+        statusCode: 404
+      }
   
     },
 
@@ -29,10 +35,11 @@ module.exports = {
 
         var project = await Project.findOne({
             title: title
-        }).populate('members').populate('main');
+        }).populate('members').populate('main').populate('tags');
 
         if (!project) {
-            sails.log("Could not find project with that title")
+            sails.log("Could not find project with that title");
+            throw 'notFound';
         } else {
             var view = "pages/new-data-page"
             this.res.view(view, project);
