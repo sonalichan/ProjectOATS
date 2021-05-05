@@ -26,7 +26,7 @@ module.exports = {
 
     fn: async function (req, res) {
         
-        var projects = await Project.find();
+        var projects = await Project.find().populate('members').populate('main');
 
         this.res.json(projects);
   
