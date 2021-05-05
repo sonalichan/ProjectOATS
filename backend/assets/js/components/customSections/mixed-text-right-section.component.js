@@ -36,9 +36,11 @@ parasails.registerComponent('mixedTextRightSection', {
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
-    <div class="d-flex justify-content-between">
-        <img :src="leftpicture" :alt="leftalt" class="w-45">
-        <div class="w-45">
+    <div>
+        <div class="image-box">
+          <img :src="leftpicture" :alt="leftalt">
+        </div>
+        <div class="text-box">
             {{ righttext }}
         </div>
     </div>

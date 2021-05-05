@@ -37,9 +37,13 @@ parasails.registerComponent('twoPictureSection', {
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
-    <div class="d-flex justify-content-between">
-        <img :src="leftpicture" :alt="leftalt" class="w-45">
-        <img :src="rightpicture" :alt="rightalt" class="w-45">
+    <div>
+      <div class="image-box">
+        <img :src="leftpicture" :alt="leftalt">
+      </div>
+      <div class="image-box">
+        <img :src="rightpicture" :alt="rightalt">
+      </div>
     </div>
     `,
   

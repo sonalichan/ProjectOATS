@@ -36,7 +36,9 @@ parasails.registerComponent('onePictureSection', {
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
     <div>
-        <img :src="mainpicture" :alt="mainalt">
+        <div class="image-box">
+          <img :src="mainpicture" :alt="mainalt">
+        </div>
     </div>
     `,
   

@@ -35,12 +35,12 @@ parasails.registerComponent('twoTextSection', {
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
-    <div class="d-flex justify-content-between">
-        <div class="w-45">
+    <div>
+        <div class="text-box">
           left text:
           {{ lefttext }}
         </div>
-        <div class="w-45">
+        <div class="text-box">
           {{ righttext }}
         </div>
     </div>
