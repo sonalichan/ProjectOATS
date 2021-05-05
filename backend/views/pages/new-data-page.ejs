@@ -1,6 +1,6 @@
 <div id="new-data-page" v-cloak>
 
-  <button id="edit-btn" type="button" class="d-block btn btn-purple float-right">Edit Page</button>
+  <a id="edit-btn" href="/edit/<%= encodeURI(title) %>" class="d-block btn btn-purple float-right">Edit Page</a>
   <div class="center">
     <h1><%= title %></h1>
     <p><%= tagline %></p>
