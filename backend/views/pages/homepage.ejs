@@ -1,8 +1,7 @@
 <div id="homepage" style="background-color: #E5E5E5" v-cloak>
   <navbar placeholder="Search"></navbar>
-
+  {{projects[1]}}
   <carousel></carousel>
-
   <!-- explore work by major section. Will become a component later -->
   <div class="d-flex justify-content-around align-items-center" style="background-color: #5C3CA5; color: white; padding: 30px; margin-bottom: 30px;">
     <div>
@@ -35,16 +34,38 @@
       description="Developing data literacy skills at a young age to dramatically improve workforce preparedness."
       year></project-card>
   </div> -->
-
+  
   <div style="padding: 30px; background-color: white; width: 90%; margin: auto auto;">
     <h2 style="text-align: center;">Explore Student Work</h2>
+    <hr style="border: 1px solid rgba(116, 116, 116, 0.5);">  
     <br/>
-    <div class="d-flex  justify-content-center">
-      <a id="old-data-card" href="old-data-page" style="padding: 50px; border-radius: 10px; border: 1px solid black;">New Design with Old Data</a>
-    </div>
-
+      <div class= 'column'>
+        <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Sponsored</span>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&lt</button>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&gt</button>
+        <div class = 'row' id="Sponsored">
+          <project-card></project-card>
+          <project-card></project-card>
+          <project-card></project-card>
+        </div>
+        <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Individual</span>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&lt</button>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&gt</button>
+        <div class = 'row' id="Individual">
+          <project-card></project-card>
+          <project-card></project-card>
+          <project-card></project-card>
+        </div>
+        <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Research</span>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&lt</button>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&gt</button>
+        <div class = 'row' id="Research">
+          <project-card></project-card>
+          <project-card></project-card>
+          <project-card></project-card>
+        </div>
+      </div>
   </div>
-
-
+  
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
