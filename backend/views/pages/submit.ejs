@@ -95,8 +95,8 @@
           </div>
         </div>
 
-        <button @click="addTeamMember()" type="button" class="btn btn-outline-purple">Add team member</button>
-        <!-- <button @click="deleteTeamMember()" type="button" class="btn btn-outline-danger absolute-end">Delete team member</button> -->
+        <button @click="addTeamMember()" type="button" class="btn btn-outline-purple">Add another team member</button>
+        <button v-if="form.members.length > 1" @click="deleteTeamMember()" type="button" class="btn btn-delete">Delete last team member</button>
       </div>
       <!-- end of team member section -->
 
@@ -501,7 +501,8 @@
           </div>
         </div>
       </div>
-      <button v-if="form.main.length < 5" @click="addMainContent()" type="button" class="btn btn-outline-purple">Add another Main Content Section</button>
+      <button v-if="form.main.length<5" @click="addMainContent()" type="button" class="btn btn-outline-purple">Add another Main Content Section</button>
+      <button v-if="form.main.length > 1 && form.main.length > 2" @click="deleteMainContent()" type="button" class="btn btn-delete">Delete last main Content</button>
 
       <!-- end of main content information section -->
       <div v-if="!submit" class="navigation-container">

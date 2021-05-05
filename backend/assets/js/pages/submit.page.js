@@ -121,6 +121,9 @@ parasails.registerPage('submit', {
         program: ''
       })
     },
+    deleteTeamMember() {
+      this.form.members.pop();
+    },
     addLink() {
       this.form.links.push('');
     },
@@ -140,6 +143,9 @@ parasails.registerPage('submit', {
         rightPicture: null,
         rightAlt: ''
       })
+    },
+    deleteMainContent() {
+      this.form.main.pop();
     },
     processFile(event) {
       // let targetID = event.target.id;
