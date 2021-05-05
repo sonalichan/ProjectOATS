@@ -26,7 +26,7 @@
       </div>
       <div>
         <strong class="d-block">Status</strong>
-        <button class="btn display-button"><%= status %></button>
+        <button class="btn display-button side-bar-button"><%= status %></button>
       </div>
     </div>
     <div class="content-block">
@@ -116,7 +116,7 @@
       <p class="d-flex flex-wrap">
         <% for (let tag of tags) { %>
           <% if (tag.category === 'topics') { %>
-            <button class="display-button" style="margin-right: 60px"><%= tag.name %></button>
+            <button class="btn display-button" style="margin-right: 60px"><%= tag.name %></button>
           <% } %>
         <% } %>
         </p>
@@ -127,7 +127,7 @@
       <p class="d-flex flex-wrap">
         <% for (let tag of tags) { %>
           <% if (tag.category === 'technology') { %>
-            <button class="display-button" style="margin-right: 60px"><%= tag.name %></button>
+            <button class="btn display-button" style="margin-right: 60px"><%= tag.name %></button>
           <% } %>
         <% } %>
         </p>
