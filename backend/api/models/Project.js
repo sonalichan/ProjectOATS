@@ -13,13 +13,13 @@
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
       // Title of project
-      projectTitle: {
+      title: {
         type: 'string',
         required: true,
         example: 'Reimagining the Capstone Archive'
       },
 
-      projectSubtitle: {
+      tagline: {
         type: 'string',
         required: true
       },
@@ -27,13 +27,25 @@
       // Tells if a project is apart of the old project archive or not
       oldProject: {
         type: 'boolean',
-        required: true,
+        defaultsTo: false
+      },
+
+      tileImage: {
+        type: 'ref'
+      },
+
+      heroImage: {
+        type: 'ref'
       },
 
       // Tells if a project is a sponsored project or not
       sponsored: {
         type: 'boolean',
         required: true
+      },
+
+      sponsor: {
+        type: 'string'
       },
 
       // Link to project video
@@ -63,37 +75,16 @@
         type: 'string',
       },
 
-      // // Problem Statement of the project
-      // problemStatement: {
-      //   type: 'string',
-      // },
-
-      // // Introduction of project describing background information 
-      // introduction:{
-      //   type: 'string',
-      // },
       nextSteps: {
+        type: 'string'
+      },
+
+      status: {
         type: 'string'
       },
 
       // Summary of project
       abstract: {
-        type: 'string',
-      },
-
-      mainTitle1: {
-        type: 'string',
-      },
-
-      mainContent1: {
-        type: 'string',
-      },
-
-      mainTitle2: {
-        type: 'string',
-      },
-
-      mainContent2: {
         type: 'string',
       },
 
@@ -111,6 +102,16 @@
 
       members: {
         collection: 'student',
+        via: 'owner'
+      },
+
+      main: {
+        collection: 'maincontent',
+        via: 'owner'
+      },
+
+      tags: {
+        collection: 'tag',
         via: 'owner'
       }
     

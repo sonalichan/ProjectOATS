@@ -1,10 +1,10 @@
 module.exports = {
 
 
-    friendlyName: 'Get Project',
+    friendlyName: 'Edit Project View',
   
   
-    description: 'Get existing project.',
+    description: 'Edit existing project.',
   
   
     extendedDescription:
@@ -41,7 +41,7 @@ module.exports = {
             sails.log("Could not find project with that title");
             throw 'notFound';
         } else {
-            var view = "pages/new-data-page"
+            var view = "pages/edit-new-data-page"
             this.res.view(view, project);
         }
   

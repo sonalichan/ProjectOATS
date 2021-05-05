@@ -2,7 +2,7 @@
  * TODO: change the component name to match--use kebab-case here
  * This is how you will reference your component
  * 
- * <team-member>
+ * <two-text-section>
  * -----------------------------------------------------------------------------
  * A button with a built-in loading spinner.
  *
@@ -13,14 +13,13 @@
  */
 
 // TODO: change the component name to match file name--use camelCase here
-parasails.registerComponent('teamMember', {
+parasails.registerComponent('twoTextSection', {
     //  ╔═╗╦═╗╔═╗╔═╗╔═╗
     //  ╠═╝╠╦╝║ ║╠═╝╚═╗
     //  ╩  ╩╚═╚═╝╩  ╚═╝
     props: [
-        "fname",
-        "lname",
-        "role"
+      "lefttext",
+      "righttext"
     ],
   
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -36,9 +35,13 @@ parasails.registerComponent('teamMember', {
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
-    <div class="team-member">
-        <p class="name"><strong>{{ fname }} {{lname}}</strong></p>
-        <p><em>{{ role }}</em></p>
+    <div>
+        <div class="text-box">
+          {{ lefttext }}
+        </div>
+        <div class="text-box">
+          {{ righttext }}
+        </div>
     </div>
     `,
   
