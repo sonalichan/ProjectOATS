@@ -37,7 +37,6 @@ parasails.registerComponent('twoTextSection', {
     template: `
     <div>
         <div class="text-box">
-          left text:
           {{ lefttext }}
         </div>
         <div class="text-box">
