@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Create Project',
+  friendlyName: 'Edit Project with put request',
 
 
-  description: 'Create new project.',
+  description: 'Edit project.',
 
 
   extendedDescription:
@@ -14,7 +14,7 @@ module.exports = {
   exits: {
 
     success: {
-      description: 'New project was created successfully.'
+      description: 'Project was edited successfully.'
     },
 
     invalid: {
@@ -31,7 +31,8 @@ module.exports = {
     var body = this.req.body;
 
     // create new project first
-    var newProject = await Project.create({
+    let project = await Project.updateOne({ title: body.title})
+      .set({
       title: body.title,
       tagline: body.tagline,
       sponsored: body.sponsored,
@@ -40,10 +41,25 @@ module.exports = {
       outcome: body.outcome,
       impact: body.impact,
       nextSteps: body.nextSteps,
-      status: body.status
-    }).fetch();
+      status: body.status,
 
-    // create each member next and associate with project's id
+
+      // for now, set these to empty lists
+      tags: [],
+      main: [],
+      members: []
+    })
+
+    console.log("project updated");
+    console.log(project)
+
+    // TODO: make sure these models are destroyed properly
+    // deassociate all foreign key fields
+    await Student.destroy({owner: project.id});
+    await Tag.destroy({owner: project.id});
+    await MainContent.destroy({owner: project.id});
+
+    // recreate all foreign key associations
     body.members.forEach(async (member) => {
       await Student.create({
         firstName: member.firstName,
@@ -53,11 +69,9 @@ module.exports = {
         program: member.program,
         optOut: member.optOut,
 
-        owner: newProject.id,
+        owner: project.id,
       });
     });
-
-    // create main content blocks and associate with project's id
     body.main.forEach(async (c) => {
       await MainContent.create({
         index: c.index,
@@ -73,17 +87,15 @@ module.exports = {
         rightPicture: c.rightPicture,
         rightAlt: c.rightAlt,
 
-        owner: newProject.id,
+        owner: project.id,
       })
     });
-
-    // create topic tags and associate with project's id
     body.topics.forEach(async (t) => {
       await Tag.create({
         name: t,
         category: "topics",
 
-        owner: newProject.id
+        owner: project.id
       })
     });
 
@@ -93,7 +105,7 @@ module.exports = {
         name: t,
         category: "technology",
 
-        owner: newProject.id
+        owner: project.id
       })
     });
 

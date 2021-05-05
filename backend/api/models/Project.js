@@ -27,13 +27,25 @@
       // Tells if a project is apart of the old project archive or not
       oldProject: {
         type: 'boolean',
-        required: true,
+        defaultsTo: false
+      },
+
+      tileImage: {
+        type: 'ref'
+      },
+
+      heroImage: {
+        type: 'ref'
       },
 
       // Tells if a project is a sponsored project or not
       sponsored: {
         type: 'boolean',
         required: true
+      },
+
+      sponsor: {
+        type: 'string'
       },
 
       // Link to project video
@@ -67,6 +79,10 @@
         type: 'string'
       },
 
+      status: {
+        type: 'string'
+      },
+
       // Summary of project
       abstract: {
         type: 'string',
@@ -91,6 +107,11 @@
 
       main: {
         collection: 'maincontent',
+        via: 'owner'
+      },
+
+      tags: {
+        collection: 'tag',
         via: 'owner'
       }
     

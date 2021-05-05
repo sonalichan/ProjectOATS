@@ -1,8 +1,7 @@
 <div id="new-data-page" v-cloak>
 
-  
+  <a id="edit-btn" href="/edit/<%= encodeURI(title) %>" class="d-block btn btn-purple float-right">Edit Page</a>
   <div class="center">
-    <button type="button" class="d-block btn btn-purple float-right">Edit Page</button>
     <h1><%= title %></h1>
     <p><%= tagline %></p>
   </div>
@@ -10,6 +9,26 @@
   <div style="background-color: lightgray; width: 100%; height: 400px; margin-bottom: 20px "><i class="fa fa-picture-o" style="position: absolute; right: 50%; margin-top: 180px;"></i></div>
 
   <main class="center">
+    <div id="left-info">
+      <div>
+        <strong>Year</strong>
+        <p><%= new Date(createdAt).getFullYear() %></p>
+      </div>
+      <% if (sponsored) { %>
+        <div>
+          <strong>Sponsored</strong>
+          <p><em><%= sponsor %></em></p>
+        </div>
+      <% } %>
+      <div>
+        <strong>Major(s)</strong>
+        <p><em>Informatics</em></p>
+      </div>
+      <div>
+        <strong class="d-block">Status</strong>
+        <button class="btn display-button"><%= status %></button>
+      </div>
+    </div>
     <div class="content-block">
       <div class="d-flex justify-content-between mb-3">
         <div class="project-steps" style="width: 45%">
@@ -86,8 +105,30 @@
           fname="<%= member.firstName %>"
           lname="<%= member.lastName %>"
           role="<%= member.role %>"
-          style="margin-right: 40px"
+          style="margin-right: 60px"
         ></team-member>
+        <% } %>
+        </p>
+    </div>
+
+    <div class="tag-block">
+      <h2>Topics</h2>
+      <p class="d-flex flex-wrap">
+        <% for (let tag of tags) { %>
+          <% if (tag.category === 'topics') { %>
+            <button class="display-button" style="margin-right: 60px"><%= tag.name %></button>
+          <% } %>
+        <% } %>
+        </p>
+    </div>
+
+    <div class="tag-block">
+      <h2>Technology</h2>
+      <p class="d-flex flex-wrap">
+        <% for (let tag of tags) { %>
+          <% if (tag.category === 'technology') { %>
+            <button class="display-button" style="margin-right: 60px"><%= tag.name %></button>
+          <% } %>
         <% } %>
         </p>
     </div>

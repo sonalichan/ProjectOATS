@@ -16,13 +16,7 @@ module.exports.bootstrap = async function() {
 
   // This bootstrap version indicates what version of fake data we're dealing with here.
   var HARD_CODED_DATA_VERSION = 4;
-
-  // create tag models and program models
-  await Tag.create({tagName: 'Data Visualization'});
-  await Tag.create({tagName: 'Ethics'});
-  await Tag.create({tagName: 'UX Design'});
-  await Tag.create({tagName: 'AI'});
-  await Tag.create({tagName: 'Privacy'});
+  
 
   // This path indicates where to store/look for the JSON file that tracks the "last run bootstrap info"
   // locally on this development computer (if we happen to be on a development computer).

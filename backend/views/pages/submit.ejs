@@ -6,7 +6,7 @@
   </strong></p>
   <p><strong>No late submissions will be accepted.</strong></p>
   <p>This form is required <strong>in addition to</strong> class assignments. The event team needs this information for the Capstone event and the Capstone project archives.</p>
-  <p>When you submit, you'll see a confirmation message including a link that will allow you to edit your submission until the May 18th deadling.</p>
+  <p>When you submit, you'll see a confirmation message including a link that will allow you to edit your submission until the May 18th deadline.</p>
   <hr>
 
   <form @submit="onSubmit">
@@ -112,22 +112,25 @@
             class="form-control"
             v-model="form.title"
             type="text"
+            maxlength="100"
             required
           ></input>
+          <span class="d-block character-count float-right">{{ form.title.length}}/100</span>
         </div>
 
         <div class="form-group required">
           <label for="project-tagline-input" class="control-label mb-0">Tag Line</label>
           <small id="tagline-helper" class="d-block mb-2 helper-text">Write a 1-2 sentence tag line for your project.</small>
-          <input
+          <textarea
             id="project-tagline-input"
             class="form-control"
+            rows="2"
             v-model="form.tagline"
             type="text"
             required
             maxlength="200"
             aria-describedby="tagline-helper"
-          ></input>
+          ></textarea>
           <span class="d-block character-count float-right">{{ form.tagline.length}}/200</span>
         </div>
 
@@ -200,13 +203,14 @@
           </div>
         </div>
 
-        <div class="form-group" v-if="form.sponsored">
+        <div class="form-group required" v-if="form.sponsored">
           <label for="sponsor-input" class="control-label">Sponsor</label>
           <input
             id="sponsor-input"
             class="form-control"
             v-model="form.sponsor"
             type="text"
+            required
           ></input>
         </div>
 
@@ -414,10 +418,13 @@
               <textarea
                 :id="'main-text-input' + section.index"
                 class="form-control"
+                rows="6"
                 v-model="form.main[section.index-1].mainText"
                 type="text"
+                maxlength="750"
                 required
               ></textarea>
+              <span class="d-block character-count float-right">{{ form.main[section.index-1].mainText.length}}/750</span>
             </div>
             <div class="form-group required" v-if="form.main[section.index-1].template==='one-picture-section'">
               <label :for="'main-image-input' + section.index" class="control-label">Upload an image/media file</label>
@@ -444,10 +451,13 @@
               <textarea
                 :id="'left-text-input' + section.index"
                 class="form-control"
+                rows="3"
                 v-model="form.main[section.index-1].leftText"
                 type="text"
+                maxlength="400"
                 required
               ></textarea>
+              <span class="d-block character-count float-right">{{ form.main[section.index-1].leftText.length}}/400</span>
             </div>
             <div class="form-group required" v-if="form.main[section.index-1].template==='two-picture-section' || form.main[section.index-1].template==='mixed-text-right-section'">
               <label :for="'left-image-input' + section.index" class="control-label">Upload an image/media file (left)</label>
@@ -474,10 +484,13 @@
               <textarea
                 :id="'right-text-input' + section.index"
                 class="form-control"
+                rows="3"
                 v-model="form.main[section.index-1].rightText"
                 type="text"
+                maxlength="400"
                 required
               ></textarea>
+              <span class="d-block character-count float-right">{{ form.main[section.index-1].rightText.length}}/400</span>
             </div>
             <div class="form-group required" v-if="form.main[section.index-1].template==='two-picture-section' || form.main[section.index-1].template==='mixed-text-left-section'">
               <label :for="'right-image-input' + section.index" class="control-label">Upload an image/media file (right)</label>
@@ -502,7 +515,7 @@
         </div>
       </div>
       <button v-if="form.main.length<5" @click="addMainContent()" type="button" class="btn btn-outline-purple">Add another Main Content Section</button>
-      <button v-if="form.main.length > 1 && form.main.length > 2" @click="deleteMainContent()" type="button" class="btn btn-delete">Delete last main Content</button>
+      <button v-if="form.main.length > 1 && form.main.length > 2" @click="deleteMainContent()" type="button" class="btn btn-delete">Delete last main content</button>
 
       <!-- end of main content information section -->
       <div v-if="!submit" class="navigation-container">
@@ -532,10 +545,10 @@
             rows="6"
             v-model="form.nextSteps"
             type="text"
-            maxlength="600"
+            maxlength="750"
             required
           ></textarea>
-          <span class="d-block character-count float-right">{{ form.nextSteps.length}}/600</span>
+          <span class="d-block character-count float-right">{{ form.nextSteps.length}}/750</span>
         </div>
 
         <div class="form-group required" aria-labelledby="status-label">
@@ -544,7 +557,7 @@
             <input
               type="radio"
               id="open-sourced-status"
-              value="open-sourced"
+              value="Open Sourced"
               name="status"
               class="form-check-input"
               v-model="form.status"
@@ -557,7 +570,7 @@
             <input
               type="radio"
               id="closed-status"
-              value="closed"
+              value="Closed"
               name="status"
               class="form-check-input"
               v-model="form.status"
@@ -570,7 +583,7 @@
             <input
               type="radio"
               id="hand-off-status"
-              value="hand-off"
+              value="Hand off to sponsor"
               name="status"
               class="form-check-input"
               v-model="form.status"
@@ -583,7 +596,7 @@
             <input
               type="radio"
               id="continuing-status"
-              value="continuing"
+              value="Continuing after capstone"
               name="status"
               class="form-check-input"
               v-model="form.status"
@@ -595,7 +608,7 @@
         </div>
 
         <div class="form-group required" aria-labelledby="link-label">
-          <label id="link-label" class="control-label">Does your project have links?</label>
+          <label id="link-label" class="control-label">Is there any additional information that you would like to link to?</label>
           <div class="form-check">
             <input
               type="radio"
@@ -644,42 +657,46 @@
         <h2>Tags</h2>
 
         <div class="form-group required">
-          <label for="topics-input" class="control-label">Topics (Select up to 3)</label>
-          <div class="form-check" v-for="topic in topics">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              :value="topic"
-              :id="topic"
-              v-model="form.topics"
-              :value="topic"
-              :disabled="form.topics.length >= 3 && !form.topics.includes(topic)" 
-            > 
-            <label class="form-check-label" :for="topic">
-              {{ topic }}
-            </label>
-          </div>
+          <label for="topics-input" class="control-label">Please select up to three topic tags for your project</label>
+          <ul class="checkbox-column">
+            <li class="form-check" v-for="topic in topics">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                :value="topic"
+                :id="topic"
+                v-model="form.topics"
+                :value="topic"
+                :disabled="form.topics.length >= 3 && !form.topics.includes(topic)" 
+              > 
+              <label class="form-check-label" :for="topic">
+                {{ topic }}
+              </label>
+            </li>
+          </ul>
         </div>
 
-        <div class="form-group required">
-          <label for="technology-input" class="control-label">Technology (Select up to 3)</label>
-          <div class="form-check" v-for="tech in technology">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              :value="tech"
-              :id="tech"
-              v-model="form.technology"
-              :value="topic"
-              :disabled="form.technology.length >= 3 && !form.technology.includes(tech)" 
-            > 
-            <label class="form-check-label" :for="tech">
-              {{ tech }}
-            </label>
-          </div>
+        <div class="form-group">
+          <label for="technology-input" class="control-label">Please select up to three technology tags for your project</label>
+          <ul class="checkbox-column">
+            <li class="form-check" v-for="tech in technology">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                :value="tech"
+                :id="tech"
+                v-model="form.technology"
+                :value="topic"
+                :disabled="form.technology.length >= 3 && !form.technology.includes(tech)" 
+              > 
+              <label class="form-check-label" :for="tech">
+                {{ tech }}
+              </label>
+            </li>
+          </ul>
         </div>
       </div>
-      {{ form }}
+      
       <!-- end of tags section -->
       <div class="navigation-container">
         <button v-if="!submit" @click="back()" type="button" class="btn btn-purple float-left">&lt Back</button>

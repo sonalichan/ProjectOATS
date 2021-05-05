@@ -1,4 +1,4 @@
-parasails.registerPage('submit', {
+parasails.registerPage('edit-new-data-page', {
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
@@ -10,15 +10,6 @@ parasails.registerPage('submit', {
       heroImage: null,
       heroImageAlt: '',
       members: [
-        {
-          index: 0,
-          firstName: '',
-          lastName: '',
-          role: '',
-          optOut: false,
-          linkedInURL: '',
-          program: ''
-        }
       ],
       sponsored: true,
       sponsor: '',
@@ -61,8 +52,6 @@ parasails.registerPage('submit', {
       topics: [],
       technology: [],
     },
-    step: 1,
-    submit: false,
     link: false,
     topics: ['Archives & special collections', 'Business & systems analysis', 'Community engagement & outreach', 'Content & digital asset management',
       'Data curation', 'Data science & visualization', 'Database administration & development', 'Digital youth & youth services', 'Equity & inclusion',
@@ -77,10 +66,34 @@ parasails.registerPage('submit', {
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
   beforeMount: function() {
-    //…
+    // associate form fields with current project data
+
+    // TODO: once pictures are set up, associate those fields as well
+   
+    console.log(this);
+    console.log(this.form.members);
+    this.form.title = this.title;
+    this.form.tagline = this.tagline;
+    this.form.members = this.members;
+    this.form.sponsored = this.sponsored;
+    this.form.sponsor = this.sponsor;
+    this.form.challenge = this.challenge;
+    this.form.outcome = this.outcome;
+    this.form.impact = this.impact;
+    this.form.main = this.main;
+    this.form.nextSteps = this.nextSteps;
+    this.form.status = this.status;
+    for (let i = 0; i < this.tags.length; i++) {
+      if (this.tags[i].category === "topics") {
+        this.form.topics.push(this.tags[i].name);
+      }
+      if (this.tags[i].category === "technology") {
+        this.form.technology.push(this.tags[i].name);
+      }
+    }
   },
   mounted: async function() {
-    //…
+  
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
@@ -91,11 +104,11 @@ parasails.registerPage('submit', {
       event.preventDefault();
 
       // axios call
-      const res = axios.post('/api/v1/project',
+      let apiPath = '/api/v1/project/' + encodeURI(this.form.title);
+      axios.put(apiPath,
         this.form
       ).then(() => {
-        console.log("axios call done")
-        var url = "project/" + encodeURI(this.form.title);
+        var url = "/project/" + encodeURI(this.form.title);
         this.goto(url)
       }).catch((err) => {
         console.log(err);
