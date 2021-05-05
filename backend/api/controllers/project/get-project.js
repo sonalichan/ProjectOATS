@@ -25,16 +25,16 @@ module.exports = {
     },
 
     fn: async function (req, res) {
-        var projectTitle = this.req.param('projectTitle');
+        var title = this.req.param('projectTitle');
 
         var project = await Project.findOne({
-            projectTitle: projectTitle
+            title: title
         });
 
         if (!project) {
             sails.log("Could not find project with that title")
         } else {
-            var url = "project/" + encodeURI(projectTitle);
+            var url = "project/" + encodeURI(title);
             this.res.view(url, project);
         }
   

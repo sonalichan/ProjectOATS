@@ -2,7 +2,7 @@
  * TODO: change the component name to match--use kebab-case here
  * This is how you will reference your component
  * 
- * <team-member>
+ * <two-picture-section-icon>
  * -----------------------------------------------------------------------------
  * A button with a built-in loading spinner.
  *
@@ -13,14 +13,11 @@
  */
 
 // TODO: change the component name to match file name--use camelCase here
-parasails.registerComponent('teamMember', {
+parasails.registerComponent('twoPictureSectionIcon', {
     //  ╔═╗╦═╗╔═╗╔═╗╔═╗
     //  ╠═╝╠╦╝║ ║╠═╝╚═╗
     //  ╩  ╩╚═╚═╝╩  ╚═╝
     props: [
-        "fname",
-        "lname",
-        "role"
     ],
   
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -36,9 +33,21 @@ parasails.registerComponent('teamMember', {
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
-    <div class="team-member">
-        <p class="name"><strong>{{ fname }} {{lname}}</strong></p>
-        <p><em>{{ role }}</em></p>
+    <div aria-hidden="true">
+        <div class="outer-box d-flex justify-content-between">
+          <div class="image-box">
+            <div class="icon-container">
+              <i class="fa fa-picture-o" aria-hidden="true"></i>
+              <div><small>Insert picture here...</small></div>
+            </div>
+          </div>
+          <div class="image-box">
+            <div class="icon-container">
+              <i class="fa fa-picture-o" aria-hidden="true"></i>
+              <div><small>Insert picture here...</small></div>
+            </div>
+          </div>
+        </div>
     </div>
     `,
   
