@@ -1,4 +1,8 @@
-# ProjectOATS
+# ProjectOATS: Reimagining the iSchool Capstone Archive
+
+This is the redesign of the current UW iSchool Capstone Archive. The goal of this project is to reshape the current state of the iSchool Capstone archive to fully showcase the excellent reputation of the department and its industry partners.
+
+The project was created with Sails.js for full stack development. This is aimed to be a three year long project, the first year being 2021 WI-SP capstone.
 
 
 ## Development with Docker
