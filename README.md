@@ -36,7 +36,13 @@ To install all dependencies, run the command:
 
     $ npm install .
 
-Upon success, this should install all packages needed to run the project, including sails(if you get an error you may need to upgrade your version of Node).
+Upon success, this should install all packages needed to run the project
+
+Make sure you also have sails installed:
+
+    $ npm install sails
+
+If you get any errors, you may need to upgrade your version of Node
 
 ### Running the Project
 
