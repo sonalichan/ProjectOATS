@@ -1,0 +1,146 @@
+#edit-new-data-page {
+
+  padding: 50px;
+  margin: 0 30px 0 30px;
+
+  h1, h2 {
+    color: #4B2E83;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  form {
+    margin-top: 60px;
+  }
+
+  .character-count {
+    color: #D7D7D7;
+    font-size: 16px;
+  }
+
+  form .navigation-container {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .step-container {
+    display: inlne-block;
+  }
+
+  span.dot {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #C4C4C4;
+    display: inline-block;
+    margin: 0 5px 0 5px;
+  }
+
+  form .dot.active {
+    background-color: #5C3CA5;
+  }
+
+  form small.helper-text {
+    font-style: italic;
+    color: #515151;
+  }
+
+  form input[type="text"], form textarea {
+    border-radius: 20px;
+  }
+
+  .form-group label {
+    font-weight: 500;
+  }
+
+  .main-form {
+    border: solid 1px #5C3CA5;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .btn-purple {
+    background-color: #5C3CA5;
+    color: white;
+  }
+
+  .btn-outline-purple {
+    border-color: #5C3CA5;
+    background-color: white;
+    color: #5C3CA5;
+  }
+
+  .btn-delete {
+    border: none;
+    background-color: white;
+    color: red;
+    text-decoration: underline;
+  }
+
+  ul.checkbox-column {
+    column-count: 2;
+    column-gap: 2rem;
+    list-style: none;
+    padding: 0px;
+  }
+
+  ul.checkbox-column label {
+    font-weight: 499;
+  }
+
+  .form-group.required .control-label:after {
+    content: "*";
+    color: red;
+  }
+
+
+  // change carousel colors
+  .carousel-control-prev-icon { 
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E"); 
+    width: 30px;
+    height: 48px;
+  }
+  .carousel-control-next-icon { 
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    width: 30px;
+    height: 48px;
+  }
+
+  .carousel-item > div {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  a.carousel-control-prev, a.carousel-control-next {
+    width: 2%;
+
+  }
+
+  .carousel .slide-title{
+    font-size: 20px;
+    padding-top: 85px;
+  }
+
+  .carousel input[type="radio"]{
+    -webkit-appearance: none;
+  }
+
+  .carousel input[type="radio"]:checked + label{
+    // these classes are from custom components
+    .outer-box {
+      background-color: #5C3CA5;
+    }
+
+    .text-box, .image-box {
+        border-color: white;
+        color: white;
+    }
+  }
+
+}

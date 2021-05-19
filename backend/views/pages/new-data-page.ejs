@@ -1,0 +1,138 @@
+<div id="new-data-page" v-cloak>
+
+  <a id="edit-btn" href="/edit/<%= encodeURI(title) %>" class="d-block btn btn-purple float-right">Edit Page</a>
+  <div class="center">
+    <h1><%= title %></h1>
+    <p><%= tagline %></p>
+  </div>
+    <!-- <image :src="project.image" alt="data diary image" style="width: 100%; height: 300px; object-fit: cover; margin-bottom: 20px"/> -->
+  <div style="background-color: lightgray; width: 100%; height: 400px; margin-bottom: 20px "><i class="fa fa-picture-o" style="position: absolute; right: 50%; margin-top: 180px;"></i></div>
+
+  <main class="center">
+    <div id="left-info">
+      <div>
+        <strong>Year</strong>
+        <p><%= new Date(createdAt).getFullYear() %></p>
+      </div>
+      <% if (sponsored) { %>
+        <div>
+          <strong>Sponsored</strong>
+          <p><em><%= sponsor %></em></p>
+        </div>
+      <% } %>
+      <div>
+        <strong>Major(s)</strong>
+        <p><em>Informatics</em></p>
+      </div>
+      <div>
+        <strong class="d-block">Status</strong>
+        <button class="btn display-button side-bar-button"><%= status %></button>
+      </div>
+    </div>
+    <div class="content-block">
+      <div class="d-flex justify-content-between mb-3">
+        <div class="project-steps" style="width: 45%">
+          <h2>THE CHALLENGE</h2>
+          <p><%= challenge %></p>
+        </div>
+        <div class="project-steps" style="width: 45%">
+          <h2>THE OUTCOME</h2>
+          <p><%= outcome %></p>
+        </div>
+      </div>
+      <div class="project-steps">
+        <h2>THE IMPACT</h2>
+        <p><%= impact %></p>
+      </div>
+    </div>
+
+    <!-- main content block -->
+    <% for (let section of main) { %>
+      <div class="content-block">
+        <% if (section.title !== '') { %><h2><%=  section.title %></h2><% } %>
+        <% if (section.template === 'one-text-section') { %>
+          <one-text-section
+            maintext="<%= section.mainText %>"
+          ></one-text-section>
+        <% } %>
+        <% if (section.template === 'two-text-section') { %>
+          <two-text-section
+            leftText="<%= section.leftText %>"
+            rightText="<%= section.rightText %>"
+          ></two-text-section>
+        <% } %>
+        <% if (section.template === 'one-picture-section') { %>
+          <one-picture-section
+            mainpicture="<%= section.mainPicture %>"
+            mainalt="<%= section.mainAlt %>"
+          ></one-picture-section>
+        <% } %>
+        <% if (section.template === 'two-picture-section') { %>
+          <two-picture-section
+            leftpicture="<%= section.leftPicture %>"
+            leftalt="<%= section.leftAlt %>"
+            rightpicture="<%= section.rightPicture %>"
+            rightalt="<%= section.rightAlt %>"
+          ></two-picture-section>
+        <% } %>
+        <% if (section.template === 'mixed-text-right-section') { %>
+          <mixed-text-right-section
+            leftpicture="<%= section.leftPicture %>"
+            leftalt="<%= section.leftAlt %>"
+            righttext="<%= section.rightText %>"
+          ></mixed-text-right-section>
+        <% } %>
+        <% if (section.template === 'mixed-text-left-section') { %>
+          <mixed-text-left-section
+            rightpicture="<%= section.rightPicture %>"
+            rightalt="<%= section.rightAlt %>"
+            lefttext="<%= section.leftText %>"
+          ></mixed-text-left-section>
+        <% } %>
+      </div>
+    <% } %>
+
+    <div class="content-block">
+      <h2>Next Steps</h2>
+      <p><%= nextSteps %></p>
+    </div>
+
+    <div class="content-block">
+      <h2>Team Members</h2>
+      <p class="d-flex flex-wrap">
+        <% for (let member of members) { %>
+          <team-member
+          fname="<%= member.firstName %>"
+          lname="<%= member.lastName %>"
+          role="<%= member.role %>"
+          style="margin-right: 60px"
+        ></team-member>
+        <% } %>
+        </p>
+    </div>
+
+    <div class="tag-block">
+      <h2>Topics</h2>
+      <p class="d-flex flex-wrap">
+        <% for (let tag of tags) { %>
+          <% if (tag.category === 'topics') { %>
+            <button class="btn display-button" style="margin-right: 60px"><%= tag.name %></button>
+          <% } %>
+        <% } %>
+        </p>
+    </div>
+
+    <div class="tag-block">
+      <h2>Technology</h2>
+      <p class="d-flex flex-wrap">
+        <% for (let tag of tags) { %>
+          <% if (tag.category === 'technology') { %>
+            <button class="btn display-button" style="margin-right: 60px"><%= tag.name %></button>
+          <% } %>
+        <% } %>
+        </p>
+    </div>
+  </main>
+
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

@@ -2,7 +2,7 @@
  * TODO: change the component name to match--use kebab-case here
  * This is how you will reference your component
  * 
- * <your-component-name>
+ * <component-name>
  * -----------------------------------------------------------------------------
  * A button with a built-in loading spinner.
  *
@@ -13,12 +13,11 @@
  */
 
 // TODO: change the component name to match file name--use camelCase here
-parasails.registerComponent('yourComponentName', {
+parasails.registerComponent('componentName', {
     //  ╔═╗╦═╗╔═╗╔═╗╔═╗
     //  ╠═╝╠╦╝║ ║╠═╝╚═╗
     //  ╩  ╩╚═╚═╝╩  ╚═╝
     props: [
-
     ],
   
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
@@ -34,8 +33,6 @@ parasails.registerComponent('yourComponentName', {
     //  ╠═╣ ║ ║║║║
     //  ╩ ╩ ╩ ╩ ╩╩═╝
     template: `
-    <div>
-    </div>
     `,
   
     //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
