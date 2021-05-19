@@ -16,6 +16,7 @@
       title: {
         type: 'string',
         required: true,
+        unique: true,
         example: 'Reimagining the Capstone Archive'
       },
 
