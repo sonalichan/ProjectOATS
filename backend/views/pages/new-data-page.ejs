@@ -20,10 +20,11 @@
           <p><em><%= sponsor %></em></p>
         </div>
       <% } %>
-      <div>
+      <!-- TODO: make sure this matches the majors of the team members -->
+      <!-- <div>
         <strong>Major(s)</strong>
         <p><em>Informatics</em></p>
-      </div>
+      </div> -->
       <div>
         <strong class="d-block">Status</strong>
         <button class="btn display-button side-bar-button"><%= status %></button>
@@ -101,12 +102,14 @@
       <h2>Team Members</h2>
       <p class="d-flex flex-wrap">
         <% for (let member of members) { %>
-          <team-member
-          fname="<%= member.firstName %>"
-          lname="<%= member.lastName %>"
-          role="<%= member.role %>"
-          style="margin-right: 60px"
-        ></team-member>
+          <% if (!member.optOut) { %>
+            <team-member
+            fname="<%= member.firstName %>"
+            lname="<%= member.lastName %>"
+            role="<%= member.role %>"
+            style="margin-right: 60px"
+          ></team-member>
+          <% } %>
         <% } %>
         </p>
     </div>
