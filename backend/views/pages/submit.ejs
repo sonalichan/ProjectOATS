@@ -140,7 +140,7 @@
             id="tileImage"
             type="file"
             class="form-control-file"
-            v-on:change="processFile($event)"
+            v-on:change="uploadTileImage($event)"
             required
           ></input>
           <small id="tileImage-description" class="mt-2 helper-text">This is what people will click on to see your project in the Capstone project website.<br>
@@ -154,7 +154,7 @@
             id="heroImage"
             type="file"
             class="form-control-file"
-            v-on:change="processFile($event)"
+            v-on:change="uploadHeroImage($event)"
             required
           ></input>
           <small id="heroImage-description" class="helper-text">This is the hero image that people will see under your project title.<br>
@@ -284,14 +284,14 @@
         <p><em>Reminder: The order of these sections will be the order of information displayed on your Capstone project page.</em></p>
         <br>
         
-        <div v-for="section in form.main">
-          <div v-if="form.main.length > 1 && section.index > 1">
+        <div v-for="(section, index) in form.main">
+          <div v-if="form.main.length > 1 && index > 0">
             <hr>
             <br>
           </div>
-          <h3>Main Content Section {{section.index }}</h3>
-          <p>Choose a template for your Main Content Section {{section.index}}</p>
-          <div :id="'customSections' + section.index" class="carousel slide mb-4" data-ride="carousel" data-interval="false">
+          <h3>Main Content Section {{index + 1 }}</h3>
+          <p>Choose a template for your Main Content Section {{index}}</p>
+          <div :id="'customSections' + index" class="carousel slide mb-4" data-ride="carousel" data-interval="false">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div>
@@ -300,26 +300,26 @@
                     <div>
                       <input
                         type="radio"
-                        :name="'section-choices-' + section.index"
-                        :id="'one-text-' + section.index"
+                        :name="'section-choices-' + index"
+                        :id="'one-text-' + index"
                         aria-label="Section with one text block"
                         value="one-text-section"
-                        v-model="form.main[section.index-1].template"
+                        v-model="form.main[index].template"
                       >
-                      <label :for="'one-text-' + section.index">
+                      <label :for="'one-text-' + index">
                         <one-text-section-icon></one-text-section-icon>
                       </label>
                     </div>
                     <div>
                       <input
                         type="radio"
-                        :name="'section-choices-' + section.index"
-                        :id="'two-text-' + section.index"
+                        :name="'section-choices-' + index"
+                        :id="'two-text-' + index"
                         aria-label="Section with two text blocks next to each other"
                         value="two-text-section"
-                        v-model="form.main[section.index-1].template"
+                        v-model="form.main[index].template"
                       >
-                      <label :for="'two-text-' + section.index">
+                      <label :for="'two-text-' + index">
                         <two-text-section-icon></two-text-section-icon>
                       </label>
                     </div>
@@ -333,26 +333,26 @@
                     <div>
                       <input
                         type="radio"
-                        :name="'section-choices-' + section.index"
-                        :id="'mixed-text-left-' + section.index"
+                        :name="'section-choices-' + index"
+                        :id="'mixed-text-left-' + index"
                         aria-label="Section with text block on the left and picture block on the right"
                         value="mixed-text-left-section"
-                        v-model="form.main[section.index-1].template"
+                        v-model="form.main[index].template"
                       >
-                      <label :for="'mixed-text-left-' + section.index">
+                      <label :for="'mixed-text-left-' + index">
                         <mixed-text-left-section-icon></mixed-text-left-section-icon>
                       </label>
                     </div>
                     <div>
                       <input
                         type="radio"
-                        :name="'section-choices-' + section.index"
-                        :id="'mixed-text-right-' + section.index"
+                        :name="'section-choices-' + index"
+                        :id="'mixed-text-right-' + index"
                         aria-label="Section with picture block on the left and text block on the right"
                         value="mixed-text-right-section"
-                        v-model="form.main[section.index-1].template"
+                        v-model="form.main[index].template"
                       >
-                      <label :for="'mixed-text-right-' + section.index">
+                      <label :for="'mixed-text-right-' + index">
                         <mixed-text-right-section-icon></mixed-text-right-section-icon>
                       </label>
                     </div>
@@ -366,26 +366,26 @@
                     <div>
                       <input
                         type="radio"
-                        :name="'section-choices-' + section.index"
-                        :id="'one-picture-' + section.index"
+                        :name="'section-choices-' + index"
+                        :id="'one-picture-' + index"
                         aria-label="Section with one picture block"
                         value="one-picture-section"
-                        v-model="form.main[section.index-1].template"
+                        v-model="form.main[index].template"
                       >
-                      <label :for="'one-picture-' + section.index">
+                      <label :for="'one-picture-' + index">
                         <one-picture-section-icon></one-picture-section-icon>
                       </label>
                     </div>
                     <div>
                       <input
                         type="radio"
-                        :name="'section-choices-' + section.index"
-                        :id="'two-picture-' + section.index"
+                        :name="'section-choices-' + index"
+                        :id="'two-picture-' + index"
                         aria-label="Section with two picture blocks next to each other"
                         value="two-picture-section"
-                        v-model="form.main[section.index-1].template"
+                        v-model="form.main[index].template"
                       >
-                      <label :for="'two-picture-' + section.index">
+                      <label :for="'two-picture-' + index">
                         <two-picture-section-icon></two-picture-section-icon>
                       </label>
                     </div>
@@ -393,129 +393,131 @@
                 </div>
               </div>
             </div>
-            <a class="carousel-control-prev" :href="'#customSections' + section.index" role="button" data-slide="prev">
+            <a class="carousel-control-prev" :href="'#customSections' + index" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" :href="'#customSections' + section.index" role="button" data-slide="next">
+            <a class="carousel-control-next" :href="'#customSections' + index" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
-
+  
           <div class="main-form" v-if="section.template!==''">
             <div class="form-group">
-              <label :for="'main-title-input' + section.index" class="control-label">Section Title</label>
+              <label :for="'main-title-input' + index" class="control-label">Section Title</label>
               <input
-                :id="'main-title-input' + section.index"
+                :id="'main-title-input' + index"
                 class="form-control"
-                v-model="form.main[section.index-1].title"
+                v-model="form.main[index].title"
                 type="text"
               ></input>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='one-text-section'">
-              <label :for="'main-text-input' + section.index" class="control-label">Insert Text Description</label>
+            <div class="form-group required" v-if="form.main[index].template==='one-text-section'">
+              <label :for="'main-text-input' + index" class="control-label">Insert Text Description</label>
               <textarea
-                :id="'main-text-input' + section.index"
+                :id="'main-text-input' + index"
                 class="form-control"
                 rows="6"
-                v-model="form.main[section.index-1].mainText"
+                v-model="form.main[index].mainText"
                 type="text"
                 maxlength="750"
                 required
               ></textarea>
-              <span class="d-block character-count float-right">{{ form.main[section.index-1].mainText.length}}/750</span>
+              <span class="d-block character-count float-right">{{ form.main[index].mainText.length}}/750</span>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='one-picture-section'">
-              <label :for="'main-image-input' + section.index" class="control-label">Upload an image/media file</label>
+            <div class="form-group required" v-if="form.main[index].template==='one-picture-section'">
+              <label :for="'main-image-input' + index" class="control-label">Upload an image/media file</label>
               <input
-                :id="'main-image-input' + section.index"
+                :id="'main-image-input' + index"
                 type="file"
                 class="form-control-file"
-                v-on:change="processFile($event)"
+                v-on:change="processMainImage($event, index)"
                 required
               ></input>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='one-picture-section'">
-              <label :for="'main-image-alt-input' + section.index" class="control-label">Provide alt text for the image/media file</label>
+            <div class="form-group required" v-if="form.main[index].template==='one-picture-section'">
+              <label :for="'main-image-alt-input' + index" class="control-label">Provide alt text for the image/media file</label>
               <input
-                :id="'main-image-alt-input' + section.index"
+                :id="'main-image-alt-input' + index"
                 class="form-control"
-                v-model="form.main[section.index-1].mainAlt"
+                v-model="form.main[index].mainAlt"
                 type="text"
                 required
               ></input>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='two-text-section' || form.main[section.index-1].template==='mixed-text-left-section'">
-              <label :for="'left-text-input' + section.index" class="control-label">Insert Text Description (left)</label>
+            <div class="form-group required" v-if="form.main[index].template==='two-text-section' || form.main[index].template==='mixed-text-left-section'">
+              <label :for="'left-text-input' + index" class="control-label">Insert Text Description (left)</label>
               <textarea
-                :id="'left-text-input' + section.index"
+                :id="'left-text-input' + index"
                 class="form-control"
                 rows="3"
-                v-model="form.main[section.index-1].leftText"
+                v-model="form.main[index].leftText"
                 type="text"
                 maxlength="400"
                 required
               ></textarea>
-              <span class="d-block character-count float-right">{{ form.main[section.index-1].leftText.length}}/400</span>
+              <span class="d-block character-count float-right">{{ form.main[index].leftText.length}}/400</span>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='two-picture-section' || form.main[section.index-1].template==='mixed-text-right-section'">
-              <label :for="'left-image-input' + section.index" class="control-label">Upload an image/media file (left)</label>
+            <div class="form-group required" v-if="form.main[index].template==='two-picture-section' || form.main[index].template==='mixed-text-right-section'">
+              <label :for="'left-image-input' + index" class="control-label">Upload an image/media file (left)</label>
               <input
-                :id="'left-image-input' + section.index"
+                :id="'left-image-input' + index"
                 type="file"
                 class="form-control-file"
-                v-on:change="processFile($event)"
+                v-on:change="processLeftImage($event, index)"
                 required
               ></input>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='two-picture-section' || form.main[section.index-1].template==='mixed-text-right-section'">
-              <label :for="'left-image-alt-input' + section.index" class="control-label">Provide alt text for the image/media file (left)</label>
+            <div class="form-group required" v-if="form.main[index].template==='two-picture-section' || form.main[index].template==='mixed-text-right-section'">
+              <label :for="'left-image-alt-input' + index" class="control-label">Provide alt text for the image/media file (left)</label>
               <input
-                :id="'left-image-alt-input' + section.index"
+                :id="'left-image-alt-input' + index"
                 class="form-control"
-                v-model="form.main[section.index-1].leftAlt"
+                v-model="form.main[index].leftAlt"
                 type="text"
                 required
               ></input>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='two-text-section' || form.main[section.index-1].template==='mixed-text-right-section'">
-              <label :for="'right-text-input' + section.index" class="control-label">Insert Text Description (right)</label>
+            <div class="form-group required" v-if="form.main[index].template==='two-text-section' || form.main[index].template==='mixed-text-right-section'">
+              <label :for="'right-text-input' + index" class="control-label">Insert Text Description (right)</label>
               <textarea
-                :id="'right-text-input' + section.index"
+                :id="'right-text-input' + index"
                 class="form-control"
                 rows="3"
-                v-model="form.main[section.index-1].rightText"
+                v-model="form.main[index].rightText"
                 type="text"
                 maxlength="400"
                 required
               ></textarea>
-              <span class="d-block character-count float-right">{{ form.main[section.index-1].rightText.length}}/400</span>
+              <span class="d-block character-count float-right">{{ form.main[index].rightText.length}}/400</span>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='two-picture-section' || form.main[section.index-1].template==='mixed-text-left-section'">
-              <label :for="'right-image-input' + section.index" class="control-label">Upload an image/media file (right)</label>
+            <div class="form-group required" v-if="form.main[index].template==='two-picture-section' || form.main[index].template==='mixed-text-left-section'">
+              <label :for="'right-image-input' + index" class="control-label">Upload an image/media file (right)</label>
               <input
-                :id="'right-image-input' + section.index"
+                :id="'right-image-input' + index"
                 type="file"
                 class="form-control-file"
-                v-on:change="processFile($event)"
+                v-on:change="processRightImage($event, index)"
                 required
               ></input>
             </div>
-            <div class="form-group required" v-if="form.main[section.index-1].template==='two-picture-section' || form.main[section.index-1].template==='mixed-text-left-section'">
-              <label :for="'right-image-alt-input' + section.index" class="control-label">Provide alt text for the image/media file (right)</label>
+            <div class="form-group required" v-if="form.main[index].template==='two-picture-section' || form.main[index].template==='mixed-text-left-section'">
+              <label :for="'right-image-alt-input' + index" class="control-label">Provide alt text for the image/media file (right)</label>
               <input
-                :id="'right-image-alt-input' + section.index"
+                :id="'right-image-alt-input' + index"
                 class="form-control"
-                v-model="form.main[section.index-1].rightAlt"
+                v-model="form.main[index].rightAlt"
                 type="text"
               ></input>
             </div>
           </div>
         </div>
+        <div class="mt-5">
+          <button v-if="form.main.length<5" @click="addMainContent()" type="button" class="btn btn-outline-purple">Add another Main Content Section</button>
+          <button v-if="form.main.length > 1 && form.main.length > 2" @click="deleteMainContent()" type="button" class="btn btn-delete">Delete last main content</button>
+        </div>
       </div>
-      <button v-if="form.main.length<5" @click="addMainContent()" type="button" class="btn btn-outline-purple">Add another Main Content Section</button>
-      <button v-if="form.main.length > 1 && form.main.length > 2" @click="deleteMainContent()" type="button" class="btn btn-delete">Delete last main content</button>
 
       <!-- end of main content information section -->
       <div v-if="!submit" class="navigation-container">
