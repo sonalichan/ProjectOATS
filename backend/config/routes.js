@@ -14,48 +14,26 @@ module.exports.routes = {
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                   { action: 'view-homepage-or-redirect' },
-  'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
   'GET /project/:projectTitle': { action: 'view-new-project-page' },
   'GET /edit/:projectTitle': { action: 'edit-new-project-page' },
   'GET /old-data-page': { action: 'view-old-data-page' },
   'GET /submit': { action: 'view-submit' },
 
-  // 'GET /faq':                { action:   'view-faq' },
-  // 'GET /legal/terms':        { action:   'legal/view-terms' },
-  // 'GET /legal/privacy':      { action:   'legal/view-privacy' },
-  // 'GET /contact':            { action:   'view-contact' },
-
-  // 'GET /signup':             { action: 'entrance/view-signup' },
-  // 'GET /email/confirm':      { action: 'entrance/confirm-email' },
-  // 'GET /email/confirmed':    { action: 'entrance/view-confirmed-email' },
-
-  // 'GET /login':              { action: 'entrance/view-login' },
-  // 'GET /password/forgot':    { action: 'entrance/view-forgot-password' },
-  // 'GET /password/new':       { action: 'entrance/view-new-password' },
-
-  // 'GET /account':            { action: 'account/view-account-overview' },
-  // 'GET /account/password':   { action: 'account/view-edit-password' },
-  // 'GET /account/profile':    { action: 'account/view-edit-profile' },
-
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝
-  // '/terms':                   '/legal/terms',
-  // '/logout':                  '/api/v1/account/logout',
+
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
-  // …
 
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
-  // Note that, in this app, these API endpoints may be accessed using the `Cloud.*()` methods
-  // from the Parasails library, or by using those method names as the `action` in <ajax-form>.
 
   // '/api/v1/account/logout':                           { action: 'account/logout' },
   // 'PUT   /api/v1/account/update-password':            { action: 'account/update-password' },
