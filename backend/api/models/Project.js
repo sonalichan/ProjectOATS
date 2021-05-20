@@ -31,12 +31,16 @@
         defaultsTo: false
       },
 
-      tileImage: {
-        type: 'ref'
+      tileImageSrc: {
+        type: 'string'
       },
 
-      heroImage: {
-        type: 'ref'
+      heroImageSrc: {
+        type: 'string'
+      },
+
+      heroImageAlt: {
+        type: 'string'
       },
 
       // Tells if a project is a sponsored project or not
