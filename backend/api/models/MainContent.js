@@ -38,24 +38,27 @@
         type: 'string',
       },
 
+      // similar to other images for project, this could be the path to the image file in the assets folder
       mainPicture: {
-          type: 'ref',
+          type: 'string',
       },
       
       mainAlt: {
           type: 'string',
       },
 
+      // similar to other images for project, this could be the path to the image file in the assets folder
       leftPicture: {
-        type: 'ref',
+        type: 'string',
       },
 
       leftAlt: {
           type: 'string',
       },
 
+      // similar to other images for project, this could be the path to the image file in the assets folder
       rightPicture: {
-        type: 'ref',
+        type: 'string',
       },
 
       rightAlt: {
