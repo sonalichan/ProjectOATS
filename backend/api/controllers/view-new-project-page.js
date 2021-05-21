@@ -35,7 +35,10 @@ module.exports = {
 
         var project = await Project.findOne({
             title: title
-        }).populate('members').populate('main').populate('tags');
+        })
+        .populate('members')
+        .populate('main')
+        .populate('tags');
 
         if (!project) {
             sails.log("Could not find project with that title");

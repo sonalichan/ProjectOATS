@@ -16,6 +16,7 @@
       title: {
         type: 'string',
         required: true,
+        unique: true,
         example: 'Reimagining the Capstone Archive'
       },
 
@@ -30,12 +31,16 @@
         defaultsTo: false
       },
 
-      tileImage: {
-        type: 'ref'
+      tileImageSrc: {
+        type: 'string'
       },
 
-      heroImage: {
-        type: 'ref'
+      heroImageSrc: {
+        type: 'string'
+      },
+
+      heroImageAlt: {
+        type: 'string'
       },
 
       // Tells if a project is a sponsored project or not
@@ -46,18 +51,6 @@
 
       sponsor: {
         type: 'string'
-      },
-
-      // Link to project video
-      projectVideo: {
-        type: 'string',
-        example: "youtube.com/watch?v=123456"
-      },
-
-      // Link to project website
-      websiteURL: {
-        type: 'string',
-        example: "yourwebsite.com"
       },
 
       // Summary of project challenge
@@ -81,6 +74,18 @@
 
       status: {
         type: 'string'
+      },
+
+      // Link to project video
+      projectVideo: {
+        type: 'string',
+        example: "youtube.com/watch?v=123456"
+      },
+
+      // Link to project website
+      websiteUrl: {
+        type: 'string',
+        example: "yourwebsite.com"
       },
 
       // Summary of project
