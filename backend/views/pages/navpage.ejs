@@ -1,0 +1,63 @@
+<div id="navpage" v-cloak>
+  <navbar placeholder="Search"></navbar>
+  <div style="padding: 30px; background-color: white; width: 90%; margin: auto auto;">
+    <p id="title">Sponsored</p>
+    <hr style="border: 7px solid rgba(92, 60, 165, 0.8); margin: 60px -1500px 20px;">  
+    
+    <br/>
+      <div class= 'column'>
+        <div class = 'row'>
+          <p id="section">Microsoft</p>
+        </div>
+        <div class = 'row' id="Sponsored">
+          <div v-for="project in sorted_projects">
+            <project-card 
+              :name="project.title"
+              :sponsored="project.sponsored"
+              :year="(project.createdAt).getFullYear()"
+              src="https://ischool.uw.edu/sites/default/files/styles/max_140x140/public/capstone/2019/3914/title-image-team-lemond.png?itok=DNUr-Zj5%22%20alt=%22Project%20Logo%22"
+              :url= "'/project/'.concat('', project.title)"
+              :description="project.tagline"
+            >
+            </project-card>
+          </div>
+          <info-card 
+            url="https://ischool.uw.edu/capstone/sponsorship#:~:text=iAffiliates%20and%20iSchool%20community%20partners,the%20winter%20and%20spring%20quarters."
+            title="Want to become a sponsor?"
+            paragraph="iAffiliates and iSchool community partners are invited to sponsor Capstone projects by submitting a project idea each autumn and working with students during the winter and spring quarters."
+            button="SPONSOR PROJECT"
+          >
+          </info-card>
+          <info-card 
+            url="https://ischool.uw.edu/capstone/sponsorship#:~:text=iAffiliates%20and%20iSchool%20community%20partners,the%20winter%20and%20spring%20quarters."
+            title="Awards"
+            paragraph="iAffiliates and iSchool community partners are invited to sponsor Capstone projects by submitting a project idea each autumn and working with students during the winter and spring quarters."
+            button="READ ABOUT AWARDS"
+          >
+          </info-card>
+        </div>
+        <div class = 'row' id="example">
+          
+          
+        </div>
+        
+        <!-- <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Individual</span>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&lt</button>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&gt</button>
+        <div class = 'row' id="Individual">
+          <project-card></project-card>
+          <project-card></project-card>
+          <project-card></project-card>
+        </div>
+        <span style="padding-left: 40px; font-weight: bold; font-size: 26px; line-height: 30px; display: flex inline; align-items: center; letter-spacing: 0.03em;">Research</span>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&lt</button>
+        <button id="SponsoredNav" style="display:inline; border: 2px solid #727272; box-sizing: border-box; border-radius: 10px; ">&gt</button>
+        <div class = 'row' id="Research">
+          <project-card></project-card>
+          <project-card></project-card>
+          <project-card></project-card>
+        </div>-->
+      </div>
+  </div>
+</div>
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

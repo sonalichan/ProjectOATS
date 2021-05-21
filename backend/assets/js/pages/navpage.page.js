@@ -1,9 +1,9 @@
-parasails.registerPage('homepage', {
+parasails.registerPage('navpage', {
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-    projects: []
+    sorted_projects: []
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -13,24 +13,22 @@ parasails.registerPage('homepage', {
     // axios call
     axios.get('/api/v1/project'
       ).then((resp) => {
-          this.projects = resp.data;
-          this.projects.forEach(project => project.createdAt = new Date(project.createdAt));
+          this.sorted_projects = resp.data;
+          this.sorted_projects.forEach(project => project.createdAt = new Date(project.createdAt));
+          
        }).catch((err) => {
         console.log(err);
     })
     
   },
-  mounted: async function(){
-    
-    
+  mounted: async function() {
+    //…
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
-
-    
-
+    //…
   }
 });

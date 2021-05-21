@@ -19,6 +19,7 @@ module.exports.routes = {
   'GET /edit/:projectTitle': { action: 'edit-new-project-page' },
   'GET /old-data-page': { action: 'view-old-data-page' },
   'GET /submit': { action: 'view-submit' },
+  'GET /navpage': { action: 'view-navpage' },
 
   // 'GET /faq':                { action:   'view-faq' },
   // 'GET /legal/terms':        { action:   'legal/view-terms' },
