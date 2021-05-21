@@ -6,6 +6,9 @@
 /sites/*/*settings*.php
 /sites/*/*services*.yml
 
+# ignore file uploads into assets folder
+*/assets/images/uploads/*
+
 # Ignore paths that may contain user-generated content
 /sites/*/files
 /sites/*/public

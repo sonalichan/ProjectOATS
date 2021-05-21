@@ -26,7 +26,9 @@ module.exports = {
   },
 
 
-  fn: async function (req, res) {
+  fn: async function () {
+
+    var fs = require('fs');
 
     var body = this.req.body;
 
@@ -34,6 +36,7 @@ module.exports = {
     var newProject = await Project.create({
       title: body.title,
       tagline: body.tagline,
+      heroImageAlt: body.heroImageAlt,
       sponsored: body.sponsored,
       sponsor: body.sponsor,
       challenge: body.challenge,
@@ -44,7 +47,7 @@ module.exports = {
     }).fetch();
 
     // create each member next and associate with project's id
-    body.members.forEach(async (member) => {
+    JSON.parse(body.members).forEach(async (member) => {
       await Student.create({
         firstName: member.firstName,
         lastName: member.lastName,
@@ -58,7 +61,7 @@ module.exports = {
     });
 
     // create main content blocks and associate with project's id
-    body.main.forEach(async (c) => {
+    JSON.parse(body.main).forEach(async (c) => {
       await MainContent.create({
         index: c.index,
         template: c.template,
@@ -78,7 +81,7 @@ module.exports = {
     });
 
     // create topic tags and associate with project's id
-    body.topics.forEach(async (t) => {
+    JSON.parse(body.topics).forEach(async (t) => {
       await Tag.create({
         name: t,
         category: "topics",
@@ -88,13 +91,79 @@ module.exports = {
     });
 
     // create tags and associate with project's id
-    body.technology.forEach(async (t) => {
+    JSON.parse(body.technology).forEach(async (t) => {
       await Tag.create({
         name: t,
         category: "technology",
 
         owner: newProject.id
       })
+    });
+
+
+    // upload heroImage
+    this.req.file("heroImage").upload({
+      dirname: process.cwd() + "/assets/images/uploads/",
+      maxBytes: 10000000
+    }, async function (err, file) {
+      if (err) {
+        return this.res.serverError(err);
+      }
+
+      if (file.length === 0) {
+        return res.badRequest("No hero image file was uploaded")
+      }
+
+      // get file name
+      var filename = file[0].fd.substring(file[0].fd.lastIndexOf('/')+1);
+      if (file[0].fd.includes("\\")) {
+        var filename = file[0].fd.substring(file[0].fd.lastIndexOf('\\')+1);
+      }
+
+      // sync assets upload location with .tmp location so image is accessible from frontend
+      var publicLocation = '/images/uploads/' + filename;
+      var uploadLocation = process.cwd() + '/assets/' + publicLocation;
+      var tempLocation = process.cwd() + '/.tmp/public/images/uploads/' + filename;
+      fs.createReadStream(uploadLocation).pipe(fs.createWriteStream(tempLocation));
+
+      // set tileImageSrc to location in assets folder
+      await Project.updateOne({id: newProject.id})
+      .set({
+        heroImageSrc: publicLocation
+      });
+    });
+
+
+    // upload tile image
+    this.req.file("tileImage").upload({
+      dirname: process.cwd() + "/assets/images/uploads/",
+      maxBytes: 10000000
+    }, async function (err, file) {
+      if (err) {
+        return this.res.serverError(err);
+      }
+
+      if (file.length === 0) {
+        return res.badRequest("No tile image file was uploaded")
+      }
+
+      // get file name
+      var filename = file[0].fd.substring(file[0].fd.lastIndexOf('/')+1);
+      if (file[0].fd.includes("\\")) {
+        var filename = file[0].fd.substring(file[0].fd.lastIndexOf('\\')+1);
+      }
+
+      // sync assets upload location with .tmp location so image is accessible from frontend
+      var publicLocation = '/images/uploads/' + filename;
+      var uploadLocation = process.cwd() + '/assets/' + publicLocation;
+      var tempLocation = process.cwd() + '/.tmp/public/images/uploads/' + filename;
+      fs.createReadStream(uploadLocation).pipe(fs.createWriteStream(tempLocation));
+
+      // set tileImageSrc to location in assets folder
+      await Project.updateOne({id: newProject.id})
+      .set({
+        tileImageSrc: publicLocation
+      });
     });
 
   }

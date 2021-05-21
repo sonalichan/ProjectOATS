@@ -90,28 +90,43 @@ parasails.registerPage('submit', {
     onSubmit(event) {
       event.preventDefault();
 
+      var formData = new FormData();
+
+      // add all text fields first to form data
+      formData.append("title", this.form.title);
+      formData.append("tagline", this.form.tagline);
+      formData.append("heroImageAlt", this.form.heroImageAlt);
+      formData.append("members", JSON.stringify(this.form.members));
+      formData.append("sponsored", this.form.sponsored);
+      formData.append("sponsor", this.form.sponsor);
+      formData.append("challenge", this.form.challenge);
+      formData.append("outcome", this.form.outcome);
+      formData.append("impact", this.form.impact);
+      formData.append("main", JSON.stringify(this.form.main));
+      formData.append("nextSteps", this.form.nextSteps);
+      formData.append("status", this.form.status);
+      formData.append("links", JSON.stringify(this.form.links));
+      formData.append("topics", JSON.stringify(this.form.topics));
+      formData.append("technology", JSON.stringify(this.form.technology));
+      
+      // add the images last
+      formData.append("tileImage", this.form.tileImage);
+      formData.append("heroImage", this.form.heroImage);
+
+      // TODO: appen main content images 
+
       // axios call
-      const res = axios.post('/api/v1/project',
-        this.form
-      ).then(() => {
-        console.log("axios call done")
+      const res = axios.post('/api/v1/project', formData)
+      .then(() => {
         var url = "project/" + encodeURI(this.form.title);
         this.goto(url)
       }).catch((err) => {
         console.log(err);
       })
-
-      // $.ajax({
-      //   type: "POST",
-      //   url: "/api/v1/project",
-      //   data: postData,
-      // }).then(() => {
-      //   console.log("ajax post done");
-      //   // this.goto('new-data-page')
-      // })
     },
     validateForm() {
       this.submit = true;
+      // TODO do form validation here
     },
     addTeamMember() {
       let currentIndex = this.form.members.length;
@@ -151,10 +166,20 @@ parasails.registerPage('submit', {
     deleteMainContent() {
       this.form.main.pop();
     },
-    processFile(event) {
-      // let targetID = event.target.id;
-      // let image = document.getElementById(targetID);
-      // this.form.images[targetID].file = image.value;
+    uploadTileImage(event) {
+      this.form.tileImage = event.target.files[0];
+    },
+    uploadHeroImage(event) {
+      this.form.heroImage = event.target.files[0];
+    },
+    processMainImage(event, index) {
+      this.form.main[index].mainPicture = event.target.files[0];
+    },
+    processLeftImage(event, index) {
+      this.form.main[index].leftPicture = event.target.files[0];
+    },
+    processRightImage(event, index) {
+      this.form.main[index].rightPicture = event.target.files[0];
     },
     nextStep() {
       this.step++;
