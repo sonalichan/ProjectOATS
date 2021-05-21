@@ -53,18 +53,6 @@
         type: 'string'
       },
 
-      // Link to project video
-      projectVideo: {
-        type: 'string',
-        example: "youtube.com/watch?v=123456"
-      },
-
-      // Link to project website
-      websiteURL: {
-        type: 'string',
-        example: "yourwebsite.com"
-      },
-
       // Summary of project challenge
       challenge: {
         type: 'string',
@@ -86,6 +74,18 @@
 
       status: {
         type: 'string'
+      },
+
+      // Link to project video
+      projectVideo: {
+        type: 'string',
+        example: "youtube.com/watch?v=123456"
+      },
+
+      // Link to project website
+      websiteUrl: {
+        type: 'string',
+        example: "yourwebsite.com"
       },
 
       // Summary of project

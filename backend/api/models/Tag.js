@@ -21,6 +21,7 @@
 
       category: {
         type: 'string',
+        required: true,
         example: 'Topics'
       },
       
