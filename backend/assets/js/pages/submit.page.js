@@ -118,8 +118,11 @@ parasails.registerPage('submit', {
       // axios call
       const res = axios.post('/api/v1/project', formData)
       .then(() => {
-        var url = "project/" + encodeURI(this.form.title);
-        this.goto(url)
+        // wait a half second to let the images upload
+        setTimeout(() => {
+          var url = "project/" + encodeURI(this.form.title);
+          this.goto(url)
+        }, 500)
       }).catch((err) => {
         console.log(err);
       })

@@ -69,16 +69,20 @@ module.exports = {
         mainText: c.mainText,
         leftText: c.leftText,
         rightText: c.rightText,
-        mainPicture: c.mainPicture,
+        // mainPicture: c.mainPicture,
         mainAlt: c.mainAlt,
-        leftPicture: c.leftPicture,
+        // leftPicture: c.leftPicture,
         leftAlt: c.leftAlt,
-        rightPicture: c.rightPicture,
+        // rightPicture: c.rightPicture,
         rightAlt: c.rightAlt,
 
         owner: newProject.id,
       })
     });
+
+    // TODO: upload main content images separately
+
+    
 
     // create topic tags and associate with project's id
     JSON.parse(body.topics).forEach(async (t) => {
